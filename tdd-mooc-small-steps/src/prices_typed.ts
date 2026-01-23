@@ -82,15 +82,15 @@ function createApp(database: Database) {
     return date.dayOfWeek === 1;
   }
 
-  function isHoliday(date: Date | undefined) {
+  function isHoliday(date: Temporal.PlainDate | undefined) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
       let holiday = new Date(row.holiday);
       if (
         date &&
-        date.getFullYear() === holiday.getFullYear() &&
-        date.getMonth() === holiday.getMonth() &&
-        date.getDate() === holiday.getDate()
+        date.year === holiday.getFullYear() &&
+        date.month === holiday.getMonth() &&
+        date.day === holiday.getDate()
       ) {
         return true;
       }
