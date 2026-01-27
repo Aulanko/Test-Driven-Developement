@@ -16,7 +16,7 @@ describe("Falling blocks", () => {
     );
   });
 
-  /*
+  
   describe("When a block is dropped", () => {
     beforeEach(() => {
       board.drop("X");
@@ -28,8 +28,8 @@ describe("Falling blocks", () => {
          ...
          ...`
       );
-    });
-
+    })});
+    /*
     test.skip("it moves down one row per tick", () => {
       board.tick();
 
