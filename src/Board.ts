@@ -1,15 +1,21 @@
 export class Board {
   width;
   height;
-  stringi = [[".",".","."],
-             [".",".","."],
-             [".",".","."]]
+  stringi:string[][];
   
   //`...\n...\n...\n`
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
+    this.stringi = []
+    for (let i = 0; i<height; i++){
+      let lista = []
+      for (let i = 0; i<width; i++){
+        lista.push(".")
+      }
+      this.stringi.push(lista)
+    }
 
   }
 
