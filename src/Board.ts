@@ -44,6 +44,15 @@ export class Board {
     } 
   }
 
-  
+  hasFalling(){
+    for (const i of this.stringi){
+      let rowindeksi = i.indexOf("X")
+      let colindeksi = this.stringi.indexOf(i)
+      if(rowindeksi && colindeksi!= this.stringi.length-1){
+        return true
+     }
+     else{
+      return false
+     }}}
 
 }
