@@ -1,7 +1,7 @@
 export class Board {
   width;
   height;
-  stringi:string[][];
+  stringi;
   
   //`...\n...\n...\n`
 
@@ -34,7 +34,13 @@ export class Board {
   }
 
   tick(){
-    this.stringi[0][1] ="."
-    this.stringi[1][1] = "X"
+    for (const i of this.stringi){
+      let rowindeksi = i.indexOf("X")
+      let colindeksi = this.stringi.indexOf(i)
+      if(rowindeksi && i!= this.stringi[-1]){
+        i[rowindeksi] = "."
+        this.stringi[colindeksi+1][rowindeksi] ="X"
+      }
+    } 
   }
 }
