@@ -37,10 +37,13 @@ export class Board {
     for (const i of this.stringi){
       let rowindeksi = i.indexOf("X")
       let colindeksi = this.stringi.indexOf(i)
-      if(rowindeksi && i!= this.stringi[-1]){
+      if(rowindeksi && colindeksi!= this.stringi.length-1){
         i[rowindeksi] = "."
         this.stringi[colindeksi+1][rowindeksi] ="X"
       }
     } 
   }
+
+  
+
 }
