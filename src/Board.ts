@@ -5,7 +5,7 @@ export class Board {
   
   //`...\n...\n...\n`
 
-  constructor(width, height) {
+  constructor(width:number, height:number) {
     this.width = width;
     this.height = height;
     this.stringi = []
