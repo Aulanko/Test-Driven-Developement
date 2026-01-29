@@ -35,20 +35,20 @@ export class Board {
 
   tick(){
     for (const i of this.stringi){
-      let rowindeksi = i.indexOf("X")
-      let colindeksi = this.stringi.indexOf(i)
-      if(rowindeksi && colindeksi!= this.stringi.length-1){
-        i[rowindeksi] = "."
-        this.stringi[colindeksi+1][rowindeksi] ="X"
+      let colindeksi = i.indexOf("X")
+      let rowindeksi = this.stringi.indexOf(i)
+      if(rowindeksi!= this.stringi.length-1){
+        i[colindeksi] = "."
+        this.stringi[rowindeksi+1][colindeksi] ="X"
       }
     } 
   }
 
   hasFalling(){
     for (const i of this.stringi){
-      let rowindeksi = i.indexOf("X")
-      let colindeksi = this.stringi.indexOf(i)
-      if(rowindeksi && colindeksi!= this.stringi.length-1){
+      let colindeksi = i.indexOf("X")
+      let rowindeksi = this.stringi.indexOf(i)
+      if(this.stringi[rowindeksi+1][colindeksi]=="."){
         return true
      }
      else{
