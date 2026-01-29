@@ -33,17 +33,17 @@ export class Board {
 
   drop(block:string){
 
-    this.stringi[0][1] = "X"
+    this.stringi[0][1] = block
     this.blocki = block
   }
 
   tick(){
     for (const i of this.stringi){
-      let colindeksi = i.indexOf("X")
+      let colindeksi = i.indexOf(this.blocki)
       let rowindeksi = this.stringi.indexOf(i)
       if(rowindeksi!= this.stringi.length-1){
         i[colindeksi] = "."
-        this.stringi[rowindeksi+1][colindeksi] ="X"
+        this.stringi[rowindeksi+1][colindeksi] =this.blocki
       }
     } 
   }
