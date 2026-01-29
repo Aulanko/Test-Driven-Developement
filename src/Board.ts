@@ -3,6 +3,7 @@ export class Board {
   height;
   stringi;
   blocki;
+  onGround;
   
   //`...\n...\n...\n`
 
@@ -11,6 +12,7 @@ export class Board {
     this.height = height;
     this.stringi = []
     this.blocki = {type:"",y:0,x:1};
+    this.onGround = 0
 
     for (let i = 0; i<height; i++){
       let lista = []
@@ -42,22 +44,21 @@ export class Board {
       let colindeksi = i.indexOf(this.blocki.type)
       let rowindeksi = this.stringi.indexOf(i)
       if(rowindeksi!= this.stringi.length-1){
+      //if(this.blocki.y < this.stringi.length-1){
         i[colindeksi] = "."
         this.stringi[rowindeksi+1][colindeksi] =this.blocki.type
         this.blocki.y +=1
+        continue
       }
+      this.onGround +=1
     } 
   }
 
   hasFalling(){
-    for (const i of this.stringi){
-      let colindeksi = i.indexOf(this.blocki.type)
-      let rowindeksi = this.stringi.indexOf(i)
-      if(this.stringi[rowindeksi+1][colindeksi]=="."){
-        return true
-     }
-     else{
+    if(this.onGround>2){
       return false
-     }}}
+    }
+    else return true
+  }
 
 }
