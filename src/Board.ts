@@ -10,7 +10,7 @@ export class Board {
     this.width = width;
     this.height = height;
     this.stringi = []
-    this.blocki = "";
+    this.blocki = {type:"",y:0,x:1};
 
     for (let i = 0; i<height; i++){
       let lista = []
@@ -34,23 +34,23 @@ export class Board {
   drop(block:string){
 
     this.stringi[0][1] = block
-    this.blocki = block
+    this.blocki.type = block
   }
 
   tick(){
     for (const i of this.stringi){
-      let colindeksi = i.indexOf(this.blocki)
+      let colindeksi = i.indexOf(this.blocki.type)
       let rowindeksi = this.stringi.indexOf(i)
       if(rowindeksi!= this.stringi.length-1){
         i[colindeksi] = "."
-        this.stringi[rowindeksi+1][colindeksi] =this.blocki
+        this.stringi[rowindeksi+1][colindeksi] =this.blocki.type
       }
     } 
   }
 
   hasFalling(){
     for (const i of this.stringi){
-      let colindeksi = i.indexOf(this.blocki)
+      let colindeksi = i.indexOf(this.blocki.type)
       let rowindeksi = this.stringi.indexOf(i)
       if(this.stringi[rowindeksi+1][colindeksi]=="."){
         return true
