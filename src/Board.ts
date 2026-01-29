@@ -2,6 +2,7 @@ export class Board {
   width;
   height;
   stringi;
+  blocki;
   
   //`...\n...\n...\n`
 
@@ -9,6 +10,8 @@ export class Board {
     this.width = width;
     this.height = height;
     this.stringi = []
+    this.blocki = "";
+
     for (let i = 0; i<height; i++){
       let lista = []
       for (let i = 0; i<width; i++){
@@ -31,6 +34,7 @@ export class Board {
   drop(block:string){
 
     this.stringi[0][1] = "X"
+    this.blocki = block
   }
 
   tick(){
