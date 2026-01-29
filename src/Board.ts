@@ -34,7 +34,7 @@ export class Board {
         }
 
   drop(block:string){
-
+    this.blocki = {type:"",y:0,x:1};
     this.stringi[0][1] = block
     this.blocki.type = block
   }
