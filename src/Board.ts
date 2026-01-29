@@ -5,7 +5,6 @@ export class Board {
   blocki;
   onImpact;
   
-  //`...\n...\n...\n`
 
   constructor(width:number, height:number) {
     this.width = width;
