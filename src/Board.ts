@@ -50,7 +50,7 @@ export class Board {
 
   hasFalling(){
     for (const i of this.stringi){
-      let colindeksi = i.indexOf("X")
+      let colindeksi = i.indexOf(this.blocki)
       let rowindeksi = this.stringi.indexOf(i)
       if(this.stringi[rowindeksi+1][colindeksi]=="."){
         return true

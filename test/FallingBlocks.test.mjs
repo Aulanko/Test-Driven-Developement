@@ -110,5 +110,5 @@ describe("Falling blocks", () => {
       expect(board.hasFalling(), "the block should stop moving").to.be.false;
     });
   });
- */ 
+ */
 });
