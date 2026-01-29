@@ -3,7 +3,7 @@ export class Board {
   height;
   stringi;
   blocki;
-  onGround;
+  onImpact;
   
   //`...\n...\n...\n`
 
@@ -12,7 +12,7 @@ export class Board {
     this.height = height;
     this.stringi = []
     this.blocki = {type:"",y:0,x:1};
-    this.onGround = 0
+    this.onImpact = 0
 
     for (let i = 0; i<height; i++){
       let lista = []
@@ -50,12 +50,12 @@ export class Board {
         this.blocki.y +=1
         continue
       }
-      this.onGround +=1
+      this.onImpact +=1
     } 
   }
 
   hasFalling(){
-    if(this.onGround>2){
+    if(this.onImpact>2){
       return false
     }
     else return true
