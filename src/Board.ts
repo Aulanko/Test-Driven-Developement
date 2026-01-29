@@ -44,6 +44,7 @@ export class Board {
       if(rowindeksi!= this.stringi.length-1){
         i[colindeksi] = "."
         this.stringi[rowindeksi+1][colindeksi] =this.blocki.type
+        this.blocki.y +=1
       }
     } 
   }
