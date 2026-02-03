@@ -31,11 +31,13 @@ export class Tetromino{
 
             for(let j of this.base){
 
-                new_list = j[counter] + new_list}
-                
-                final_list.push(new_list)
+                new_list = j[counter] + new_list
+            
+            }
+            counter ++;
+            final_list.push(new_list)
         } 
-        counter ++;
+      
         this.base = final_list
 
         return this 
