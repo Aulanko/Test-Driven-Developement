@@ -1,20 +1,24 @@
 export class Tetromino{
 
-    base:string;
+    base:string[];
     constructor(){
-        this.base = ""
+        this.base = []
     }
 
     toString(){
         
-        return this.base
+        const res = this.base.join("\n")+"\n"
+        return res   
 
     }
     static get T_SHAPE():Tetromino{
         let shape = new Tetromino()
-        shape.base = '.T.\nTTT\n...\n'
+
+        shape.base = ['.T.','TTT','...']
         
 
         return shape
     }
+
+ 
 }
