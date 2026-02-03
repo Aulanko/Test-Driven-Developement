@@ -51,7 +51,7 @@ export class RotatingShape{
 
             for (let i of this.base){
 
-                new_list =i[counter]+new_list
+                new_list +=i[counter]
             }
             counter --;
             final_list.push(new_list)
