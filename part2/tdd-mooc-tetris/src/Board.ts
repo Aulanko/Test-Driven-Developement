@@ -41,11 +41,17 @@ export class Board {
   }
 
   tick(){
+
     const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
+    
     if (hasDefinedFreeSpace){
       this.stringi[this.blocki.y][this.blocki.x] ="."
       this.stringi[this.blocki.y+1][this.blocki.x] =this.blocki.type
-      this.blocki.y +=1   } this.onImpact -=1
+      this.blocki.y +=1   
+    
+    } 
+      
+      this.onImpact -=1
     /*
     for (const i of this.stringi){
       let colindeksi = i.indexOf(this.blocki.type)
