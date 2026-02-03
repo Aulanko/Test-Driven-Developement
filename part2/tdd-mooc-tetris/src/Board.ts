@@ -30,14 +30,14 @@ export class Board {
     }
 
     return res
-        }
+  }
 
   drop(block:string){
-    
-    this.blocki = {type:"",y:0,x:1};
+    if(this.hasFalling() && this.blocki.type!=""){
+      throw new Error("already falling")    }
+    this.blocki = {type:block,y:0,x:1};
     this.stringi[0][1] = block
-    this.blocki.type = block
-    this.onImpact = 2
+    this.onImpact = 0
   }
 
   tick(){
@@ -50,8 +50,13 @@ export class Board {
       this.blocki.y +=1   
     
     } 
+    else{
       
       this.onImpact -=1
+      
+      
+    }
+    
     /*
     for (const i of this.stringi){
       let colindeksi = i.indexOf(this.blocki.type)
