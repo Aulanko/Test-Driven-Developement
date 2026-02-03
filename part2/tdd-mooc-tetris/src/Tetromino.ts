@@ -1,8 +1,10 @@
 export class Tetromino{
 
     base:string[];
+    position: number;
     constructor(){
         this.base = []
+        this.position = 0
     }
 
     toString(){
@@ -15,13 +17,20 @@ export class Tetromino{
         let shape = new Tetromino()
 
         shape.base = ['.T.','TTT','...']
+        shape.position = 0
         
 
         return shape
     }
 
     rotateRight(){
-        this.base=['.T.','.TT','.T.']
+        const positions =[
+            ['.T.','TTT','...'],
+            ['.T.','.TT','.T.'],
+            ['...','TTT','.T.'],
+            ['.T.','TT.','.T.'] ]
+        this.position =(this.position+1)%4
+        this.base=positions[this.position]
         return this
     }
 
