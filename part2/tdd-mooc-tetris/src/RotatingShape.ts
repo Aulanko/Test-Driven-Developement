@@ -26,8 +26,8 @@ export class RotatingShape{
     rotateRight(){
         let final_list = []
         let counter = 0
-        for (let i =0; i++; this.base.length){
-            
+        for (let i =0; i< this.base.length;i++){
+
             let new_list = ""
 
             for (let i of this.base){
@@ -38,5 +38,7 @@ export class RotatingShape{
             final_list.push(new_list)
         }
         this.base= final_list
+        
+        return this
     }
 }
