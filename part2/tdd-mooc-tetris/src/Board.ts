@@ -34,7 +34,8 @@ export class Board {
 
   drop(block:string){
     if(this.hasFalling() && this.blocki.type!=""){
-      throw new Error("already falling")    }
+      throw new Error("already falling")
+    }
     this.blocki = {type:block,y:0,x:1};
     this.stringi[0][1] = block
     this.onImpact = 0
