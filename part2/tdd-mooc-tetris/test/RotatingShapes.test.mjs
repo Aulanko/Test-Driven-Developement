@@ -25,14 +25,14 @@ describe("Rotating 3x3 shape", () => {
        IFC`
     );
   });
-  /*
+  
   test.skip("can be rotated left/counter-clockwise", () => {
     expect(shape.rotateLeft().toString()).to.equalShape(
       `CFI
        BEH
        ADG`
     );
-  });*/
+  });
 });
 
 
