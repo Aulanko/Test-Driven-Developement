@@ -27,8 +27,11 @@ export class RotatingShape{
         let final_list = []
         let counter = 0
         for (let i =0; i++; this.base.length){
+            
             let new_list = ""
+
             for (let i of this.base){
+
                 new_list =i[counter]+new_list
             }
             counter ++;
