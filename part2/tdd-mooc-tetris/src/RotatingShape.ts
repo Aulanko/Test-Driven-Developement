@@ -1,8 +1,8 @@
 export class RotatingShape{
     
-    base;
+    base:string[];
     constructor(){
-        this.base = ""   
+        this.base =[] 
     }
 
 
@@ -11,12 +11,17 @@ export class RotatingShape{
         .map(line => line.trim()).filter(line=>line!="")
         const shape = new RotatingShape()
 
-        shape.base = linet.join("\n")+"\n"
+        shape.base = linet
         return shape  
     }
 
 
     toString(){
-        return this.base    
+        const res = this.base.join("\n")+"\n"
+        return res    
+    }
+
+    rotateRight(){
+
     }
 }
