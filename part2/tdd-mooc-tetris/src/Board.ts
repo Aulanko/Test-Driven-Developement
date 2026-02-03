@@ -33,12 +33,20 @@ export class Board {
         }
 
   drop(block:string){
+    
     this.blocki = {type:"",y:0,x:1};
     this.stringi[0][1] = block
     this.blocki.type = block
+    this.onImpact = 2
   }
 
   tick(){
+    const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
+    if (hasDefinedFreeSpace){
+      this.stringi[this.blocki.y][this.blocki.x] ="."
+      this.stringi[this.blocki.y+1][this.blocki.x] =this.blocki.type
+      this.blocki.y +=1   } this.onImpact -=1
+    /*
     for (const i of this.stringi){
       let colindeksi = i.indexOf(this.blocki.type)
       let rowindeksi = this.stringi.indexOf(i)
@@ -50,11 +58,11 @@ export class Board {
             this.blocki.y +=1
             continue }
           this.onImpact -=1}   
-    } 
+    } */
   }
 
   hasFalling(){
-    if(this.onImpact<=0){
+    if(this.onImpact<0){
       return false
     }
     return true
