@@ -9,6 +9,8 @@ export class RotatingShape{
     static fromString(stringi:string):RotatingShape{
         const linet = stringi.split("\n")
         .map(line => line.trim()).filter(line=>line!="")
+        
+        
         const shape = new RotatingShape()
 
         shape.base = linet
@@ -18,10 +20,14 @@ export class RotatingShape{
 
     toString(){
         const res = this.base.join("\n")+"\n"
-        return res    
+        return res   
     }
 
     rotateRight(){
-
-    }
-}
+        let final_list = []
+        let counter = 0
+        for (let i =0; i++; this.base.length){ let new_list = ""
+            for (let i of this.base){
+                new_list =i[counter]+new_list }
+            counter ++;
+            final_list.push(new_list) }this.base= final_list}}
