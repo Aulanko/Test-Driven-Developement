@@ -38,9 +38,9 @@ export class Tetromino{
       rotateLeft(){
         const positions =[
             ['.T.','TTT','...'],
-            ['.T.','.TT','.T.'],
+            ['.T.','TT.','.T.'],
             ['...','TTT','.T.'],
-            ['.T.','TT.','.T.']
+            ['.T.','.TT','.T.']
         ]
         this.position =(this.position+3)%4
         this.base=positions[this.position]
