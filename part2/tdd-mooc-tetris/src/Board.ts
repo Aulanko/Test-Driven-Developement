@@ -11,7 +11,7 @@ export class Board {
     this.height = height;
     this.stringi = []
     this.blocki = {type:"",y:0,x:1};
-    this.onImpact = 0
+    this.onImpact = 2
 
     for (let i = 0; i<height; i++){
       let lista = []
@@ -49,12 +49,12 @@ export class Board {
             this.stringi[rowindeksi+1][colindeksi] =this.blocki.type
             this.blocki.y +=1
             continue }
-          this.onImpact +=1}   
+          this.onImpact -=1}   
     } 
   }
 
   hasFalling(){
-    if(this.onImpact>=2){
+    if(this.onImpact<=0){
       return false
     }
     return true
