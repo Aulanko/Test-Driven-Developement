@@ -37,9 +37,11 @@ export class RotatingShape{
             counter ++;
             final_list.push(new_list)
         }
-        this.base= final_list
+        let shape_right = new RotatingShape()
+        shape_right.base = final_list
+        //this.base= final_list
         
-        return this
+        return shape_right
     }
     
     rotateLeft(){
