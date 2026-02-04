@@ -45,7 +45,8 @@ export class RotatingShape{
     }
     
     rotateLeft(){
-        let final_list = []
+        return this.rotateRight().rotateRight().rotateRight()
+        /*let final_list = []
         let counter = this.base.length-1
         for (let i =0; i< this.base.length;i++){
 
@@ -61,5 +62,5 @@ export class RotatingShape{
         this.base= final_list
         
         return this
-    } 
+    } */}
 }
