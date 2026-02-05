@@ -5,12 +5,12 @@ export class Tetromino{
 
 
    
-    #currentPosition:number;
-    #differentPositions:object[];
+    currentPosition:number;
+    differentPositions:object[];
     constructor(currentPosition:number, differentPositions:object[]){
     
-        this.#currentPosition=currentPosition
-        this.#differentPositions = differentPositions
+        this.currentPosition=currentPosition
+        this.differentPositions = differentPositions
     }
 
     static fromString(currentPosition:number, numberOfPositions:number, initialShape:string){
@@ -32,7 +32,11 @@ export class Tetromino{
     )
 
     toString(){
-        return this.#differentPositions[this.#currentPosition].toString()
+        return this.differentPositions[this.currentPosition].toString()
+    }
+
+    rotateRight(){
+        return new Tetromino(this.currentPosition+1, this.differentPositions)
     }
 
     
