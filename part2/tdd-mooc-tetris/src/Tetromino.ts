@@ -2,50 +2,41 @@ import { RotatingShape } from "./RotatingShape";
 
 export class Tetromino{
 
+
+
     base:string[];
     position: number;
-    constructor(){
+    #currentPosition:number;
+    #differentPositions:object[];
+    constructor(currentPosition:number, differentPositions:object[]){
         this.base = []
         this.position = 0
+        this.#currentPosition=currentPosition
+        this.#differentPositions = differentPositions
     }
+
+    static fromString(currentPosition:number, numberOfPositions:number, initialShape:string){
+        let shape = RotatingShape.fromString(initialShape)
+        const differentPositions = [
+            shape,
+            shape.rotateRight(),
+            shape.rotateRight().rotateRight(),
+            shape.rotateLeft()
+        ].slice(0,numberOfPositions)
+        return new Tetromino(currentPosition, differentPositions)
+    }   
+
+    static T_SHAPE = Tetromino.fromString(
+        0,
+        4,
+        `.T.\nTTT\n...\n`
+
+    )
 
     toString(){
-        
-        const res = this.base.join("\n")+"\n"
-        return res   
-
-    }
-    static T_SHAPE():Tetromino{
-        let shape = new Tetromino()
-
-        shape.base = ['.T.','TTT','...']
-        shape.position = 0
-        
-
-        return shape
+        return this.#differentPositions[this.#currentPosition]
     }
 
-    rotateRight(){
-        const positions =[
-            ['.T.','TTT','...'],
-            ['.T.','.TT','.T.'],
-            ['...','TTT','.T.'],
-            ['.T.','TT.','.T.']
-        ]
-        this.position =(this.position+1)%4
-        this.base=positions[this.position]
-        return this
-    }
-
-      rotateLeft(){
-        const positions =[
-            ['.T.','TTT','...'],
-            ['.T.','TT.','.T.'],
-            ['...','TTT','.T.'],
-            ['.T.','.TT','.T.']
-        ]
-        this.position =(this.position+3)%4
-        this.base=positions[this.position]
-        return this
-    }
+    
+    
 }
