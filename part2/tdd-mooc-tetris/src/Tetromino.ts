@@ -15,7 +15,7 @@ export class Tetromino{
         return res   
 
     }
-    static get T_SHAPE():Tetromino{
+    static T_SHAPE():Tetromino{
         let shape = new Tetromino()
 
         shape.base = ['.T.','TTT','...']
