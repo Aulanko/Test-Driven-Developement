@@ -31,7 +31,9 @@ export class Tetromino{
 
     )
 
-    getCurrentShape(){  return this.differentPositions[this.currentPosition] }
+    getCurrentShape(){  
+        return this.differentPositions[this.currentPosition]
+    }
 
     toString(){    
         return this.getCurrentShape().toString()
@@ -40,9 +42,12 @@ export class Tetromino{
    
 
     rotateRight(){
-        return new Tetromino((this.currentPosition+1+this.differentPositions.length)%4,  this.differentPositions) }
+        return new Tetromino((this.currentPosition+1+this.differentPositions.length)%4,
+             this.differentPositions) }
 
-    rotateLeft(){    return new Tetromino((this.currentPosition-1+this.differentPositions.length)%4,  this.differentPositions) }
+    rotateLeft(){
+        return new Tetromino((this.currentPosition-1+this.differentPositions.length)%4,
+         this.differentPositions) }
 
     
     
