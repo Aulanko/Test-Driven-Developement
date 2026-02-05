@@ -4,13 +4,11 @@ export class Tetromino{
 
 
 
-    base:string[];
-    position: number;
+   
     #currentPosition:number;
     #differentPositions:object[];
     constructor(currentPosition:number, differentPositions:object[]){
-        this.base = []
-        this.position = 0
+    
         this.#currentPosition=currentPosition
         this.#differentPositions = differentPositions
     }
@@ -34,7 +32,7 @@ export class Tetromino{
     )
 
     toString(){
-        return this.#differentPositions[this.#currentPosition]
+        return this.#differentPositions[this.#currentPosition].toString()
     }
 
     
