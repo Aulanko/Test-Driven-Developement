@@ -31,14 +31,20 @@ export class Tetromino{
 
     )
 
-    toString(){
-        return this.differentPositions[this.currentPosition].toString()
+    getCurrentShape(){  return this.differentPositions[this.currentPosition] }
+
+    toString(){    
+        return this.getCurrentShape().toString()
     }
+
+   
 
     rotateRight(){
-        return new Tetromino(this.currentPosition+1, this.differentPositions)
-    }
+        return new Tetromino((this.currentPosition+1+this.differentPositions.length)%4,  this.differentPositions) }
 
+    rotateLeft(){    return new Tetromino((this.currentPosition-1+this.differentPositions.length)%4,  this.differentPositions) }
+
+    
     
     
 }
