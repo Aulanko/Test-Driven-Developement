@@ -15,12 +15,15 @@ export class Tetromino{
 
     static fromString(currentPosition:number, numberOfPositions:number, initialShape:string){
         let shape = RotatingShape.fromString(initialShape)
+        
+       
         const differentPositions = [
             shape,
             shape.rotateRight(),
             shape.rotateRight().rotateRight(),
             shape.rotateLeft()
         ].slice(0,numberOfPositions)
+
         return new Tetromino(currentPosition, differentPositions)
     }   
 
@@ -49,11 +52,11 @@ export class Tetromino{
    
 
     rotateRight(){
-        return new Tetromino((this.currentPosition+1+this.differentPositions.length)%4,
+        return new Tetromino((this.currentPosition+1+this.differentPositions.length)%this.differentPositions.length,
              this.differentPositions) }
 
     rotateLeft(){
-        return new Tetromino((this.currentPosition-1+this.differentPositions.length)%4,
+        return new Tetromino((this.currentPosition-1+this.differentPositions.length)%this.differentPositions.length,
          this.differentPositions) }
 
     
