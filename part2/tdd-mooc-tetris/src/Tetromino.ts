@@ -31,6 +31,13 @@ export class Tetromino{
 
     )
 
+     static I_SHAPE = Tetromino.fromString(
+        0,
+        2,
+        `.....\n.....\nIIII.\n.....\n.....`
+
+    )
+
     getCurrentShape(){  
         return this.differentPositions[this.currentPosition]
     }
