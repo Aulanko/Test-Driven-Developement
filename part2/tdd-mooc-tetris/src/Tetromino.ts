@@ -43,7 +43,7 @@ export class Tetromino{
 
     static O_SHAPE = Tetromino.fromString(
         0,
-        2,
+        0,
         `.....\n.....\nIIII.\n.....\n.....`
 
     )
