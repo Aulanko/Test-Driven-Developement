@@ -58,10 +58,7 @@ export class Board {
       
     }
     
-    /*
-    for (const i of this.stringi){
-       
-    } */
+  
   }
 
   hasFalling(){
