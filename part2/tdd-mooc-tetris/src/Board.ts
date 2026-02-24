@@ -60,16 +60,7 @@ export class Board {
     
     /*
     for (const i of this.stringi){
-      let colindeksi = i.indexOf(this.blocki.type)
-      let rowindeksi = this.stringi.indexOf(i)
-      const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
-      if(hasDefinedFreeSpace){
-          if(this.blocki.y < this.stringi.length-1){
-            i[colindeksi] = "."
-            this.stringi[rowindeksi+1][colindeksi] =this.blocki.type
-            this.blocki.y +=1
-            continue }
-          this.onImpact -=1}   
+       
     } */
   }
 
