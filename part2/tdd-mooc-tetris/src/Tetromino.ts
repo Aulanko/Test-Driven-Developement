@@ -34,7 +34,14 @@ export class Tetromino{
 
     )
 
-     static I_SHAPE = Tetromino.fromString(
+    static I_SHAPE = Tetromino.fromString(
+        0,
+        2,
+        `.....\n.....\nIIII.\n.....\n.....`
+
+    )
+
+    static O_SHAPE = Tetromino.fromString(
         0,
         2,
         `.....\n.....\nIIII.\n.....\n.....`
