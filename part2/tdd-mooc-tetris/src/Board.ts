@@ -32,11 +32,12 @@ export class Board {
     return res
   }
 
-  drop(block:string){
+  drop(block:any){
     if(this.hasFalling() && this.blocki.type!=""){
       throw new Error("already falling")
     }
     this.blocki = {type:block,y:0,x:1};
+    
     this.stringi[0][1] = block
     this.onImpact = 0
   }
