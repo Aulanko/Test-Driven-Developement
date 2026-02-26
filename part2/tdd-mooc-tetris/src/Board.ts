@@ -36,6 +36,15 @@ export class Board {
     if(this.hasFalling() && this.blocki.type!=""){
       throw new Error("already falling")
     }
+
+    let finalBlocks;
+
+    if(typeof block =="string"){
+      finalBlocks = [block]
+    }
+
+   
+
     this.blocki = {type:block,y:0,x:1};
     
     let startX = Math.floor(this.width/2) - Math.floor(block[0].length/2)
