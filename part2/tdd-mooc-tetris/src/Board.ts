@@ -46,7 +46,7 @@ export class Board {
       }
     }
     
-    this.stringi[0][1] = block
+    //this.stringi[0][1] = block
     this.onImpact = 0
   }
 
