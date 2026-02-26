@@ -38,6 +38,14 @@ export class Board {
     }
     this.blocki = {type:block,y:0,x:1};
     
+    let startX = Math.floor(this.width/2) - Math.floor(block[0].length/2)
+
+    for(let r = 0; r<block.length;r++){
+      for(let col=0; col<block[r].length; col++){
+        this.stringi[r][startX +col]=block[r][col]
+      }
+    }
+    
     this.stringi[0][1] = block
     this.onImpact = 0
   }
