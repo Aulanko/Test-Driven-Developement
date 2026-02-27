@@ -50,7 +50,7 @@ export class Board {
 
    
 
-    this.blocki = {type:block,y:0,x:1};
+    this.blocki = {type:block,y:0,x:Math.floor(this.width/2) - Math.floor(finalBlocks[0].length/2)};
     
     let startX = Math.floor(this.width/2) - Math.floor(block[0].length/2)
 
@@ -60,7 +60,7 @@ export class Board {
       }
     }
     
-    //this.stringi[0][1] = block
+    
     this.onImpact = 0
   }
 
