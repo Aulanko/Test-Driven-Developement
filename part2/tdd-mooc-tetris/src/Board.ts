@@ -42,6 +42,11 @@ export class Board {
     if(typeof block =="string"){
       finalBlocks = [block]
     }
+    else{
+      const currentShape = block.getCurrentShape();
+      const shapeString = currentShape.toString()
+      finalBlocks = shapeString.trim().split("\n")
+    }
 
    
 
