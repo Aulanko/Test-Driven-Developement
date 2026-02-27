@@ -50,10 +50,11 @@ export class Board {
 
    
 
-    this.blocki = {type:block,y:0,x:Math.floor(this.width/2) - Math.floor(finalBlocks[0].length/2)};
     
     let startX = Math.floor(this.width/2) - Math.floor(finalBlocks[0].length/2)
 
+    this.blocki = {type: block, y: 0, x: startX};
+    
     for(let r = 0; r<finalBlocks.length;r++){
       for(let col=0; col<finalBlocks[r].length; col++){
         this.stringi[r][startX +col]=finalBlocks[r][col]
