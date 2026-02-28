@@ -47,12 +47,16 @@ export class Board {
       const currentShape = block.getCurrentShape();
       const shapeString = currentShape.toString()
       finalBlocks = shapeString.trim().split("\n")
+
       if (finalBlocks[0][1] =="T"){
         bottomIndex = 1
-      }if(finalBlocks[2][1] =="I"){
+      }
+      if(finalBlocks[2][1] =="I"){
         bottomIndex = 2
-      }      if(finalBlocks[0][1]=="O"){
-        bottomIndex =1 }
+      }
+      if(finalBlocks[0][1]=="O"){
+        bottomIndex =1
+      }
 
       
     }
