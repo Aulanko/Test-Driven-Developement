@@ -53,7 +53,7 @@ export class Board {
     
     let startX = Math.floor((this.width -finalBlocks[0].length)/2)
 
-    this.blocki = {type: block, y: 0, x: startX};
+    this.blocki = {type: block, y: finalBlocks.length-1, x: startX};
     
     for(let r = 0; r<finalBlocks.length;r++){
       for(let col=0; col<finalBlocks[r].length; col++){
