@@ -38,6 +38,7 @@ export class Board {
     }
 
     let finalBlocks;
+    let bottomIndex =0
 
     if(typeof block =="string"){
       finalBlocks = [block]
@@ -46,6 +47,14 @@ export class Board {
       const currentShape = block.getCurrentShape();
       const shapeString = currentShape.toString()
       finalBlocks = shapeString.trim().split("\n")
+      if (finalBlocks[0][1] =="T"){
+        bottomIndex = 1
+      }if(finalBlocks[2][1] =="I"){
+        bottomIndex = 2
+      }      if(finalBlocks[0][1]=="O"){
+        bottomIndex =1 }
+
+      
     }
 
    
@@ -53,7 +62,7 @@ export class Board {
     
     let startX = Math.floor((this.width -finalBlocks[0].length)/2)
 
-    this.blocki = {type: block, y: finalBlocks.length-1, x: startX};
+    this.blocki = {type: block, y: bottomIndex, x: startX};
     
     for(let r = 0; r<finalBlocks.length;r++){
       for(let col=0; col<finalBlocks[r].length; col++){
