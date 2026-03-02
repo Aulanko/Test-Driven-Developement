@@ -106,6 +106,7 @@ export class Board {
           let freeSpaceUnderBlock = this.stringi[row+1]?this.stringi[row+1][col]==".":false
           if(this.stringi[row][col]==this.blocki.type && freeSpaceUnderBlock){
             this.stringi[row][col]="."
+            this.stringi[row+1][col] = this.blocki.type   
           }
         }    
       }
