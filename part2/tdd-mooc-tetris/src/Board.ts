@@ -125,17 +125,20 @@ export class Board {
         for(const block of blocksFalling){
           this.stringi[block.row][block.col]="."
         }
-       }
+       
       this.blocki.y ++;
 
       for(let row = 0; row<this.finalBlocks.length;row++){
         for(let col = 0; col<this.finalBlocks.length;col++){
          if(this.finalBlocks[row][col]!=="."){
           this.stringi[this.blocki.y+row][this.blocki.x+col] = this.finalBlocks[row][col]
-         }
+            }
+          }
         }
+      } else{
+        this.onImpact -=1
+        
       }
-
     }
 
     
