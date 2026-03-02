@@ -12,8 +12,25 @@ function fallToBottom(board) {
 
 describe("Falling Tetromino can be moved right", ()=>{
     let board;
+    
     beforeEach(() => {
         board = new Board(10, 6);
+        
     });
-    test.skip()
+   
+    test.skip("Test should move tetromino to right", ()=>{
+
+   
+        board.drop(Tetromino.T_SHAPE)
+        board.moveRight()
+        expect(board.toString()).to.equalShape(
+            `.....T....
+            ....TTT...
+            ..........
+            ..........
+            ..........
+            ..........`
+        );  
+    }
+    ) 
 })

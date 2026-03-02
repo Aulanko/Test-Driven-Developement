@@ -156,4 +156,9 @@ export class Board {
     return true
   }
 
+
+  moveRight(){
+    return
+  }
+
 }
