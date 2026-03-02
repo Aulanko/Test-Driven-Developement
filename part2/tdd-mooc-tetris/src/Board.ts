@@ -86,7 +86,7 @@ export class Board {
 
 
   tick(){
-    if(!this.finalBlocks){
+    if(!this.finalBlocks||this.finalBlocks.length===0){
       return
     }
 
