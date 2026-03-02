@@ -105,7 +105,16 @@ export class Board {
 
     let hasFreeDown = true
 
+    for(let block of blocksFalling){
+      let rowBelow = block.row+1
+      if(rowBelow>=this.height){
+        hasFreeDown=false
+        break
+      }
 
+      const blockBelow = this.stringi[rowBelow][block.col]
+
+    }
     
     if (hasDefinedFreeSpace){
       
