@@ -54,14 +54,7 @@ export class Board {
         bottomIndex = 1
         this.blocki.type ="T"
       }
-      if(this.finalBlocks[2][1] =="I"){
-        bottomIndex = 2
-        this.blocki.type ="I"
-      }
-      if(this.finalBlocks[0][1]=="O"){
-        bottomIndex =1
-        this.blocki.type="O"
-      }
+    
 
       
     }
