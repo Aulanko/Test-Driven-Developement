@@ -93,6 +93,9 @@ export class Board {
 
     
     const blocksFalling = []
+    for(let row = 0; row<this.finalBlocks.length;row++){
+
+    }
     
     if (hasDefinedFreeSpace){
       
