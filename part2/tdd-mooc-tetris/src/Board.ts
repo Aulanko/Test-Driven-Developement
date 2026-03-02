@@ -39,7 +39,7 @@ export class Board {
       throw new Error("already falling")
     }
 
-    //let finalBlocks;
+    
     let bottomIndex =0
 
     if(typeof block =="string"){
@@ -89,8 +89,14 @@ export class Board {
     
     const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
 
-  
-
+    let startX = Math.floor((this.width -this.finalBlocks[0].length)/2)
+    /*
+    for(let r = 0; r<this.finalBlocks.length;r++){
+      for(let col=0; col<this.finalBlocks[r].length; col++){
+        this.stringi[r][startX +col]=this.finalBlocks[r][col]
+      }
+    }
+    */
 
     if (hasDefinedFreeSpace){
       
