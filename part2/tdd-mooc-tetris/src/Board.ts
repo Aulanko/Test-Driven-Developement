@@ -121,7 +121,15 @@ export class Board {
         }
       }
 
+      if(hasFreeDown){
+        for(const block of blocksFalling){
+          this.stringi[block.row][block.col]="."
+        }
+       }
+
     }
+
+    
     
     if (hasDefinedFreeSpace){
       
