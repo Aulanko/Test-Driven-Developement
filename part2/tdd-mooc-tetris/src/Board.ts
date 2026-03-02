@@ -89,14 +89,19 @@ export class Board {
     
     const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
 
-    let startX = Math.floor((this.width -this.finalBlocks[0].length)/2)
-    /*
-    for(let r = 0; r<this.finalBlocks.length;r++){
-      for(let col=0; col<this.finalBlocks[r].length; col++){
-        this.stringi[r][startX +col]=this.finalBlocks[r][col]
+    let counter = 0
+    let blocksToChange = []
+    for(let i =0; i <bottomRow.length;i++){
+      if(this.stringi[this.blocki.y][i]==this.blocki.type){
+        let freeSpaceUnderBlock = this.stringi[i+1]?this.stringi[i+1][i]==".":false
+        counter ++;
+        if(freeSpaceUnderBlock){
+          blocksToChange.push(this.stringi[this.blocki.y][i])
+        }
       }
     }
-    */
+   // if(counter== blocksToChange.length){}
+
 
     if (hasDefinedFreeSpace){
       
