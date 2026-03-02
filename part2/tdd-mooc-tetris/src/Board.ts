@@ -113,6 +113,13 @@ export class Board {
       }
 
       const blockBelow = this.stringi[rowBelow][block.col]
+      if(blockBelow){
+        const partOfShape= blocksFalling.some(i=>i.row===rowBelow&&i.col===block.col)
+        if(!partOfShape){
+          hasFreeDown=false
+          break
+        }
+      }
 
     }
     
