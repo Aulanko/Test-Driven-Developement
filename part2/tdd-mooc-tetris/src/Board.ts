@@ -83,6 +83,8 @@ export class Board {
     this.onImpact = 0
   }
 
+  
+
   tick(){
 
     const bottomRow = this.stringi[this.blocki.y]
