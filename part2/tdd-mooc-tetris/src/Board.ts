@@ -127,7 +127,12 @@ export class Board {
         }
        }
       this.blocki.y ++;
-      
+
+      for(let row = 0; row<this.finalBlocks.length;row++){
+        for(let col = 0; col<this.finalBlocks.length;col++){
+         
+        }
+      }
 
     }
 
