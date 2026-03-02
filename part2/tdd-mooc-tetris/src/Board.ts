@@ -4,11 +4,13 @@ export class Board {
   stringi;
   blocki;
   onImpact;
+  finalBlocks;
   
 
   constructor(width:number, height:number) {
     this.width = width;
     this.height = height;
+    this.finalBlocks =[]
     this.stringi = []
     this.blocki = {type:"",y:0,x:1};
     this.onImpact = 2
@@ -37,26 +39,26 @@ export class Board {
       throw new Error("already falling")
     }
 
-    let finalBlocks;
+    //let finalBlocks;
     let bottomIndex =0
 
     if(typeof block =="string"){
-      finalBlocks = [block]
+      this.finalBlocks = [block]
     }
     else{
       const currentShape = block.getCurrentShape();
       const shapeString = currentShape.toString()
-      finalBlocks = shapeString.trim().split("\n")
+      this.finalBlocks = shapeString.trim().split("\n")
 
-      if (finalBlocks[0][1] =="T"){
+      if (this.finalBlocks[0][1] =="T"){
         bottomIndex = 1
         this.blocki.type ="T"
       }
-      if(finalBlocks[2][1] =="I"){
+      if(this.finalBlocks[2][1] =="I"){
         bottomIndex = 2
         this.blocki.type ="I"
       }
-      if(finalBlocks[0][1]=="O"){
+      if(this.finalBlocks[0][1]=="O"){
         bottomIndex =1
         this.blocki.type="O"
       }
@@ -67,13 +69,13 @@ export class Board {
    
 
     
-    let startX = Math.floor((this.width -finalBlocks[0].length)/2)
+    let startX = Math.floor((this.width -this.finalBlocks[0].length)/2)
 
     this.blocki = {type: block, y: bottomIndex, x: startX};
     
-    for(let r = 0; r<finalBlocks.length;r++){
-      for(let col=0; col<finalBlocks[r].length; col++){
-        this.stringi[r][startX +col]=finalBlocks[r][col]
+    for(let r = 0; r<this.finalBlocks.length;r++){
+      for(let col=0; col<this.finalBlocks[r].length; col++){
+        this.stringi[r][startX +col]=this.finalBlocks[r][col]
       }
     }
     
@@ -87,7 +89,7 @@ export class Board {
     
     const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
 
-    
+  
 
 
     if (hasDefinedFreeSpace){
