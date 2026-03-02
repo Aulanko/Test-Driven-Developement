@@ -100,7 +100,16 @@ export class Board {
         }
       }
     }
-   // if(counter== blocksToChange.length){}
+   if(counter== blocksToChange.length){
+    for(let row=this.blocki.y; row<0;row--){
+        for(let col = 0; col<this.width;col++){
+          let freeSpaceUnderBlock = this.stringi[row+1]?this.stringi[row+1][col]==".":false
+          if(this.stringi[row][col]==this.blocki.type && freeSpaceUnderBlock){
+            this.stringi[row][col]="."
+          }
+        }    
+      }
+   }
 
 
     if (hasDefinedFreeSpace){
