@@ -50,12 +50,15 @@ export class Board {
 
       if (finalBlocks[0][1] =="T"){
         bottomIndex = 1
+        this.blocki.type ="T"
       }
       if(finalBlocks[2][1] =="I"){
         bottomIndex = 2
+        this.blocki.type ="I"
       }
       if(finalBlocks[0][1]=="O"){
         bottomIndex =1
+        this.blocki.type="O"
       }
 
       
@@ -83,10 +86,12 @@ export class Board {
     const bottomRow = this.stringi[this.blocki.y]
     
     const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
+
     for(let i =0; i <bottomRow.length;i++){
-      if(this.stringi[i+1]?this.stringi[i+1][i]==".":false){
-        
-      }
+         if(this.stringi[this.blocki.y][i]!="."){
+          let freeSpaceUnderBlock = this.stringi[i+1]?this.stringi[i+1][i]==".":false
+         }
+      
     }
     if (hasDefinedFreeSpace){
       
