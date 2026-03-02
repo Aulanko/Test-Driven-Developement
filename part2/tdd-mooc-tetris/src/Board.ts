@@ -116,14 +116,14 @@ export class Board {
       }
 
       const blockBelow = this.stringi[rowBelow][block.col]
-      if(blockBelow){
+      if(blockBelow!=="."){
         const partOfShape= blocksFalling.some(i=>i.row===rowBelow&&i.col===block.col)
         if(!partOfShape){
           hasFreeDown=false
           break
         }
       }
-
+      }
       if(hasFreeDown){
         for(const block of blocksFalling){
           this.stringi[block.row][block.col]="."
@@ -132,7 +132,7 @@ export class Board {
       this.blocki.y ++;
 
       for(let row = 0; row<this.finalBlocks.length;row++){
-        for(let col = 0; col<this.finalBlocks.length;col++){
+        for(let col = 0; col<this.finalBlocks[row].length;col++){
          if(this.finalBlocks[row][col]!=="."){
           this.stringi[this.blocki.y+row][this.blocki.x+col] = this.finalBlocks[row][col]
             }
@@ -145,10 +145,10 @@ export class Board {
           this.finalBlocks= [];
         }
       }
-    }
+    
 
     
-    
+    /*
     if (hasDefinedFreeSpace){
       
       this.stringi[this.blocki.y][this.blocki.x] ="."
@@ -161,7 +161,7 @@ export class Board {
       this.onImpact -=1
      
       
-    }
+    }*/
     
   
   }
