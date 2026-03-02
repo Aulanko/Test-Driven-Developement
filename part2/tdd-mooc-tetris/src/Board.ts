@@ -130,7 +130,9 @@ export class Board {
 
       for(let row = 0; row<this.finalBlocks.length;row++){
         for(let col = 0; col<this.finalBlocks.length;col++){
-         
+         if(this.finalBlocks[row][col]!=="."){
+          this.stringi[this.blocki.y+row][this.blocki.x+col] = this.finalBlocks[row][col]
+         }
         }
       }
 
