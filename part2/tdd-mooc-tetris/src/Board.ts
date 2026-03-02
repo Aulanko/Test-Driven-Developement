@@ -92,7 +92,7 @@ export class Board {
     const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
 
     
-
+    const blocksFalling = []
     
     if (hasDefinedFreeSpace){
       
