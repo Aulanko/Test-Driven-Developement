@@ -126,6 +126,8 @@ export class Board {
           this.stringi[block.row][block.col]="."
         }
        }
+      this.blocki.y ++;
+      
 
     }
 
