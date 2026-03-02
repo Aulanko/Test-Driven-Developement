@@ -51,10 +51,14 @@ export class Board {
       this.finalBlocks = shapeString.trim().split("\n")
 
       if (this.finalBlocks[0][1] =="T"){
-        bottomIndex = 1
         this.blocki.type ="T"
       }
-    
+      if(this.finalBlocks[2][1] =="I"){
+        this.blocki.type ="I"
+      }
+      if(this.finalBlocks[0][1]=="O"){
+        this.blocki.type="O"
+      }
 
       
     }
