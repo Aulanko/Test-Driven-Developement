@@ -81,11 +81,11 @@ export class Board {
   tick(){
 
     const bottomRow = this.stringi[this.blocki.y]
+    
+    const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
     for(let i= 0; i<this.stringi.length;i++){
       
     }
-    const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
-    
     if (hasDefinedFreeSpace){
       
       this.stringi[this.blocki.y][this.blocki.x] ="."
