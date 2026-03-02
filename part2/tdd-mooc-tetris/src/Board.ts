@@ -102,6 +102,10 @@ export class Board {
         }
       }
     }
+
+    let hasFreeDown = true
+
+
     
     if (hasDefinedFreeSpace){
       
