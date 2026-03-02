@@ -87,16 +87,7 @@ export class Board {
     
     const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
 
-    let counter = 0
-    let blocksToChange = []
-    for(let i =0; i <bottomRow.length;i++){
-         if(this.stringi[this.blocki.y][i]==this.blocki.type){
-          let freeSpaceUnderBlock = this.stringi[i+1]?this.stringi[i+1][i]==".":false
-          counter++;
-          if(freeSpaceUnderBlock){
-            blocksToChange.push(this.stringi[this.blocki.y])
-          }
-         }}
+    
 
 
     if (hasDefinedFreeSpace){
