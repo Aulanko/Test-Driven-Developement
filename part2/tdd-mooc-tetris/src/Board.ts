@@ -145,20 +145,6 @@ export class Board {
     
 
     
-    /*
-    if (hasDefinedFreeSpace){
-      
-      this.stringi[this.blocki.y][this.blocki.x] ="."
-      this.stringi[this.blocki.y+1][this.blocki.x] =this.blocki.type
-      this.blocki.y +=1   
-    
-    } 
-    else{
-      
-      this.onImpact -=1
-     
-      
-    }*/
     
   
   }
