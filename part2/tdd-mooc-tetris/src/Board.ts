@@ -161,4 +161,12 @@ export class Board {
     return
   }
 
+  moveLeft(){
+    return
+  }
+
+  moveDown(){
+    return
+  }
+
 }

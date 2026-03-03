@@ -31,6 +31,35 @@ describe("Falling Tetromino can be moved right", ()=>{
             ..........
             ..........`
         );  
-    }
+        }
     ) 
+
+    test.skip("Test should move tetromino to left", ()=>{
+        board.drop(Tetromino.T_SHAPE)
+        board.moveLeft()
+        expect(board.toString()).to.equalShape(
+            `....T.....
+            ...TTT....
+            ..........
+            ..........
+            ..........
+            ..........`
+        );  
+    } )
+
+    test.skip("Test should move tetromino to down", ()=>{
+        board.drop(Tetromino.T_SHAPE)
+        board.moveDown()
+        expect(board.toString()).to.equalShape(
+            `..........
+            ....T.....
+            ...TTT....
+            ..........
+            ..........
+            ..........`
+        );  
+    } )
+    
+
+
 })
