@@ -92,7 +92,8 @@ export class Board {
     const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
 
     
-    const blocksFalling = []
+    const blocksFalling = this.getFallingBlocks()
+    /*
     for(let row = 0; row<this.finalBlocks.length;row++){
       for(let col = 0; col<this.finalBlocks.length;col++){
         if(this.finalBlocks[row][col]!="."){
@@ -101,7 +102,7 @@ export class Board {
           blocksFalling.push({row:fallingRow, col:fallingCol})
         }
       }
-    }
+    }*/
 
     let hasFreeDown = true
 
@@ -172,6 +173,7 @@ export class Board {
 
 
   moveRight(){
+    
     return
   }
 
