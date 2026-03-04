@@ -93,16 +93,7 @@ export class Board {
 
     
     const blocksFalling = this.getFallingBlocks()
-    /*
-    for(let row = 0; row<this.finalBlocks.length;row++){
-      for(let col = 0; col<this.finalBlocks.length;col++){
-        if(this.finalBlocks[row][col]!="."){
-          const fallingRow = this.blocki.y+row
-          const fallingCol = this.blocki.x+col
-          blocksFalling.push({row:fallingRow, col:fallingCol})
-        }
-      }
-    }*/
+   
 
     let hasFreeDown = true
 
