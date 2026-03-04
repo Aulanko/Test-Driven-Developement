@@ -18,7 +18,7 @@ describe("Falling Tetromino can be moved right", ()=>{
         
     });
    
-    test.skip("Test should move tetromino to right", ()=>{
+    test("Test should move tetromino to right", ()=>{
 
    
         board.drop(Tetromino.T_SHAPE)
