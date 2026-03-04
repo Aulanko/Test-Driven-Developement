@@ -167,6 +167,7 @@ export class Board {
         }
       }
     }
+    return blocksFalling
   }
 
 
