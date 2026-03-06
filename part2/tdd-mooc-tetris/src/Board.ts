@@ -177,6 +177,9 @@ export class Board {
   moveRight(){
     const blocksFalling = this.getFallingBlocks()
     for(const block of blocksFalling) {
+        if(block.col+1>= this.width){
+          return
+        }
         this.stringi[block.row][block.col] = ".";
     }
     this.blocki.x++;
@@ -197,6 +200,14 @@ export class Board {
   }
 
   moveDown(){
+    const blocksFalling = this.getFallingBlocks()
+    for(const block of blocksFalling) {
+        this.stringi[block.row][block.col] = ".";
+    }
+    this.blocki.y++;
+
+    this.reDrawFallingBlocks()
+    return this
     return
   }
 
