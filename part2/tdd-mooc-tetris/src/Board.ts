@@ -185,6 +185,12 @@ export class Board {
         }
   }
 
+  shapeTrim(blocks:string[]){
+    const nonEmptyRows = blocks.filter(row => row.includes('T') || row.includes('I') || row.includes('O'));
+    
+    return 
+  }
+
 
   moveRight(){
     const blocksFalling = this.getFallingBlocks()
@@ -269,3 +275,5 @@ export class Board {
   }
 
 }
+
+
