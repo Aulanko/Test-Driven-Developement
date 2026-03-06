@@ -178,7 +178,7 @@ export class Board {
     const blocksFalling = this.getFallingBlocks()
     for(const block of blocksFalling) {
         if(block.col+1>= this.width){
-          return
+          return this
         }
         this.stringi[block.row][block.col] = ".";
     }
@@ -191,6 +191,9 @@ export class Board {
   moveLeft(){
     const blocksFalling = this.getFallingBlocks()
     for(const block of blocksFalling) {
+        if(block.col-1<0){
+          return this
+        }
         this.stringi[block.row][block.col] = ".";
     }
     this.blocki.x--;
