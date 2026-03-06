@@ -56,7 +56,11 @@ export class Board {
 
       if (this.finalBlocks[0][1] =="T"){
         this.blocki.type ="T"
-        
+        this.orientations =[[".T.", "TTT", "..."],
+                            ["T..", "TT.", "T.."], 
+                            ["...", "TTT", ".T."],
+                            [".T.", "TT.", ".T."]  
+                          ]
       }
       if(this.finalBlocks[2][1] =="I"){
         this.blocki.type ="I"
