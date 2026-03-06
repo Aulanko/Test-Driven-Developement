@@ -177,10 +177,18 @@ export class Board {
   moveRight(){
     const blocksFalling = this.getFallingBlocks()
     for(const block of blocksFalling) {
-        if(block.col+1>= this.width){
+        if(block.col+1>=this.width){
           return this
         }
-        this.stringi[block.row][block.col] = ".";
+        if(this.stringi[block.row][block.col+1]!="."){
+          const ispartOfShape = blocksFalling.some(b=>b.row===block.row&&b.col===block.col+1)
+          if(!ispartOfShape){
+            return this
+          }
+        }
+    }
+    for(const block of blocksFalling){
+      this.stringi[block.row][block.col] = ".";
     }
     this.blocki.x++;
 
