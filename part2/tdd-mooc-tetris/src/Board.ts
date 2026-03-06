@@ -186,7 +186,14 @@ export class Board {
   }
 
   moveLeft(){
-    return
+    const blocksFalling = this.getFallingBlocks()
+    for(const block of blocksFalling) {
+        this.stringi[block.row][block.col] = ".";
+    }
+    this.blocki.x--;
+
+    this.reDrawFallingBlocks()
+    return this
   }
 
   moveDown(){
