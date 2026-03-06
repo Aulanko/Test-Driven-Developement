@@ -13,10 +13,10 @@ function fallToBottom(board) {
 describe("Test Rotating I shape", () =>{
     let board;
     beforeEach(()=>{
-        new Board(15,10);
+        board = new Board(15,10);
     })
     
-    test.skip("Test I shape dropping and rotation", ()=>{
+    test("Test Dropping the I shape to a bigger board", ()=>{
       board.drop(Tetromino.I_SHAPE)
       expect(board.toString()).to.equalShape(
         `...............

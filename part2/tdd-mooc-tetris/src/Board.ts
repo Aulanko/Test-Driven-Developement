@@ -43,7 +43,7 @@ export class Board {
     }
 
     
-    let bottomIndex =0
+    this.fallingTetromino = block
 
     if(typeof block =="string"){
       this.finalBlocks = [block]
