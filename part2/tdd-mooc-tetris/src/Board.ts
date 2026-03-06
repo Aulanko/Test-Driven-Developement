@@ -5,8 +5,7 @@ export class Board {
   blocki;
   onImpact;
   finalBlocks:string[];
-  orientations:string[][];
-  currentOrientation:number;
+  tetromino;
   
 
   constructor(width:number, height:number) {
@@ -14,8 +13,8 @@ export class Board {
     this.height = height;
     this.finalBlocks =[]
     this.stringi = []
-    this.orientations = [[]]
-    this.currentOrientation =0
+    this.tetromino = null
+   
     this.blocki = {type:"",y:0,x:1};
     this.onImpact = 2
 
