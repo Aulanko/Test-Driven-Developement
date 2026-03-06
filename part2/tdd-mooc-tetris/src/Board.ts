@@ -185,19 +185,7 @@ export class Board {
         }
   }
 
-  shapeTrim(blocks:string[]){
-    const nonEmptyRows = blocks.filter(row => row.includes('T') || row.includes('I') || row.includes('O'));
-
-    let minCol= blocks[0].length;
-    let maxCol= -1;
-    for (const row of nonEmptyRows) {
-        for (let col = 0;col<row.length; col++) {
-            if (row[col]!=='.') {
-                minCol = Math.min(minCol, col);
-                maxCol = Math.max(maxCol, col);     }
-        }   }
-    return nonEmptyRows.map(row => row.substring(minCol, maxCol + 1));
-  }
+  
 
 
   moveRight(){
@@ -272,8 +260,7 @@ export class Board {
 
     let rotatedTermino = this.fallingTetromino.rotateRight()
     let shape = rotatedTermino.getCurrentShape()
-    const newFinalBlocks = shape.toString().trim().split("\n")
-
+    let newFinalBlocks = shape.toString().trim().split("\n")
 
     this.fallingTetromino = rotatedTermino
     this.finalBlocks = newFinalBlocks
