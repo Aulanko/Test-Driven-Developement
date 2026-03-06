@@ -10,7 +10,7 @@ function fallToBottom(board) {
   }
 }
 
-describe("Falling Tetromino can be moved right", ()=>{
+describe("Falling Tetromino can be moved right and left", ()=>{
     let board;
     
     beforeEach(() => {
@@ -59,7 +59,14 @@ describe("Falling Tetromino can be moved right", ()=>{
             ..........`
         );  
     } )
-
+})
+    describe("Test Tetrominoes cannot go beyond board or through objects", ()=>{
+    let board;
+    
+    beforeEach(() => {
+        board = new Board(10, 6);
+        
+    });
     test("Test cannot go over right side", () =>{
             board.drop(Tetromino.T_SHAPE)
             board.moveRight().moveRight().moveRight().moveRight().moveRight().moveRight()
