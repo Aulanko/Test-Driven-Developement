@@ -240,4 +240,11 @@ export class Board {
     return
   }
 
+  rotateRight(){
+    if(this.blocki.type="I"){
+      
+    }
+    return
+  }
+
 }

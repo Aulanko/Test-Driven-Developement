@@ -10,4 +10,15 @@ function fallToBottom(board) {
   }
 }
 
-//describe("Test Rotating I shape")
+describe("Test Rotating I shape", () =>{
+    let board;
+    beforeEach(()=>{
+        new Board(15,10);
+    })
+    
+    test("Test I shape dropping and rotation", ()=>{
+      //  board.drop(Tetromino.I_SHAPE)
+        
+    })
+
+})
