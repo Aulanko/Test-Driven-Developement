@@ -156,7 +156,7 @@ export class Board {
   getFallingBlocks(){
     const blocksFalling = []
     for(let row = 0; row<this.finalBlocks.length;row++){
-      for(let col = 0; col<this.finalBlocks.length;col++){
+      for(let col = 0; col<this.finalBlocks[row].length;col++){
         if(this.finalBlocks[row][col]!="."){
           const fallingRow = this.blocki.y+row
           const fallingCol = this.blocki.x+col
@@ -175,6 +175,13 @@ export class Board {
           this.stringi[this.blocki.y+row][this.blocki.x+col] = this.finalBlocks[row][col]
             }
           }
+        }
+  }
+
+  clearOldPosition(){
+     const blocksFalling = this.getFallingBlocks();
+        for(const block of blocksFalling) {
+            this.stringi[block.row][block.col] = ".";
         }
   }
 
@@ -246,11 +253,19 @@ export class Board {
   }
 
   rotateRight(){
-    if(this.blocki.type="I"){
-      
 
-    }
-    return
+    this.clearOldPosition()
+
+    let rotatedTermino = this.fallingTetromino.rotateRight()
+    let shape = rotatedTermino.getCurrentShape()
+    const newFinalBlocks = shape.toString().trim().split("\n")
+
+
+    this.fallingTetromino = rotatedTermino
+    this.finalBlocks = newFinalBlocks
+   
+    this.reDrawFallingBlocks()
+    return this
   }
 
 }
