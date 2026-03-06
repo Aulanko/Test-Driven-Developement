@@ -221,11 +221,20 @@ export class Board {
 
   moveDown(){
     const blocksFalling = this.getFallingBlocks()
+    for(const block of blocksFalling){
+      if(block.row+1 >= this.height){
+        return this
+      }
+      if(this.stringi[block.row+1][block.col]!="."){
+        const ispartOfShape = blocksFalling.some(b=>b.row===block.row+1&&b.col===block.col)
+        if(!ispartOfShape){
+            return this
+          }
+      }    }
     for(const block of blocksFalling) {
         this.stringi[block.row][block.col] = ".";
     }
     this.blocki.y++;
-
     this.reDrawFallingBlocks()
     return this
     return
