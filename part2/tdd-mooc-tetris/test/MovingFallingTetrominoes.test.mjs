@@ -86,6 +86,30 @@ describe("Falling Tetromino can be moved right", ()=>{
          ..........`
     );
     })
+
+    test("Test cannot go right over another block aldready in place", () =>{
+        board.drop(Tetromino.O_SHAPE)
+        board.moveRight().moveRight().moveRight().moveRight().moveRight().moveRight()
+        fallToBottom(board)
+        board.drop(Tetromino.O_SHAPE)
+        board.moveRight().moveRight().moveRight().moveRight().moveRight().moveRight()
+        fallToBottom(board)
+
+        board.drop(Tetromino.T_SHAPE)
+        board.tick()
+        board.tick()
+        board.moveRight().moveRight()
+        
+        expect(board.toString()).to.equalShape(
+        `..........
+         ..........
+         ......T.OO
+         .....TTTOO
+         ........OO
+         ........OO`
+    );
+        
+    })
     
 
 
