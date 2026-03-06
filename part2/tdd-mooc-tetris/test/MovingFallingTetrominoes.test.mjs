@@ -74,7 +74,7 @@ describe("Falling Tetromino can be moved right", ()=>{
         }  
     )
 
-    test.skip("Test cannot go over left side", () =>{
+    test("Test cannot go over left side", () =>{
         board.drop(Tetromino.T_SHAPE)
         board.moveLeft().moveLeft().moveLeft().moveLeft().moveLeft().moveLeft()
         expect(board.toString()).to.equalShape(

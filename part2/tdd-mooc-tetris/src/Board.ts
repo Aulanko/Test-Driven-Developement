@@ -194,7 +194,16 @@ export class Board {
         if(block.col-1<0){
           return this
         }
-        this.stringi[block.row][block.col] = ".";
+        if(this.stringi[block.row][block.col-1]!="."){
+          const ispartOfShape = blocksFalling.some(b=>b.row===block.row&&b.col===block.col-1)
+          if(!ispartOfShape){
+            return this
+          }
+        }
+        
+    }
+    for(const block of blocksFalling){
+      this.stringi[block.row][block.col] = ".";
     }
     this.blocki.x--;
 
