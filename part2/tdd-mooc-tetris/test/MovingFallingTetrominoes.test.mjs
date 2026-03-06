@@ -147,6 +147,20 @@ describe("Falling Tetromino can be moved right", ()=>{
     );
     })
 
+    test("Test cannot be moved down through other blocks (will stop falling)", () =>{
+        board.drop(Tetromino.T_SHAPE)
+        fallToBottom(board)
+        board.drop(Tetromino.T_SHAPE)
+        board.moveDown().moveDown().moveDown().moveDown().moveDown().moveDown().moveDown().moveDown()
+        expect(board.toString()).to.equalShape(
+        `..........
+         ..........
+         ....T.....
+         ...TTT....
+         ....T.....
+         ...TTT....`
+    );
+    })
     
 
 
