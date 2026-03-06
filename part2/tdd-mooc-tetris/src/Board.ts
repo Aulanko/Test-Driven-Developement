@@ -256,7 +256,7 @@ export class Board {
 
     this.clearOldPosition()
 
-    let rotatedTermino = this.fallingTetromino.rotateRight().rotateRight()
+    let rotatedTermino = this.fallingTetromino.rotateRight()
     let shape = rotatedTermino.getCurrentShape()
     const newFinalBlocks = shape.toString().trim().split("\n")
 
