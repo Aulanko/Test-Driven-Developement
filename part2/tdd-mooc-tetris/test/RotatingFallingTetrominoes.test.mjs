@@ -15,6 +15,11 @@ function moveToRightEdge(board){
     board.moveRight();
   }
 }
+function moveToLeftEdge(board){
+  for(let i = 0; i<19; i++) {
+    board.moveLeft();
+  }
+}
 
 describe("Test Rotating I shape", () =>{
     let board;
