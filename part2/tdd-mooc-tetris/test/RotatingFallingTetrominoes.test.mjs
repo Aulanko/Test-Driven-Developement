@@ -112,7 +112,7 @@ describe("Test Rotating T shape", () =>{
 
 })
 
-describe("Test Rotating O shape", () =>{
+describe("Test Rotating O shape, which cannot be rotated", () =>{
 
   let board;
   beforeEach(()=>{
