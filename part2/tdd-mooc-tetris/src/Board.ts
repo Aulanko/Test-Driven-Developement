@@ -261,6 +261,14 @@ export class Board {
     let rotatedTermino = this.fallingTetromino.rotateRight()
     let shape = rotatedTermino.getCurrentShape()
     let newFinalBlocks = shape.toString().trim().split("\n")
+    for(let row=0; row<newFinalBlocks.length; row++){
+      for(let col = 0; col<newFinalBlocks[row].length; col++){
+        if(newFinalBlocks[row][col]!="." && this.blocki.x+col>=this.width){
+          return this
+        }
+      }
+    }
+      
 
     this.clearOldPosition()
     this.fallingTetromino = rotatedTermino
