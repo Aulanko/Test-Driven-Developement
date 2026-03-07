@@ -210,6 +210,13 @@ describe("Test Rotating T shape", () =>{
         
     })
 
+    test.skip("T shape cannot be rotated over right wall", () =>{
+      board.drop(Tetromino.T_SHAPE)
+      board.moveRight()
+      moveToRightEdge(board)
+
+    })
+
 
 })
 
