@@ -264,7 +264,7 @@ export class Board {
     for(let row=0; row<newFinalBlocks.length; row++){
       for(let col = 0; col<newFinalBlocks[row].length; col++){
         if(newFinalBlocks[row][col]!="." && this.blocki.x+col>=this.width 
-          || newFinalBlocks[row][col]!="." &&  col<0){
+          || newFinalBlocks[row][col]!="." &&  this.blocki.x+col<0){
           return this
         }
       }
