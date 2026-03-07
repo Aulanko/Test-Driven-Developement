@@ -10,6 +10,12 @@ function fallToBottom(board) {
   }
 }
 
+function moveToRightEdge(board){
+  for(let i = 0; i<19; i++) {
+    board.moveRight();
+  }
+}
+
 describe("Test Rotating I shape", () =>{
     let board;
     beforeEach(()=>{
@@ -71,6 +77,40 @@ describe("Test Rotating I shape", () =>{
       )
     })
 
+
+    test.skip("I shape cannot be rotated right if too close to wall", () =>{
+      board.drop(Tetromino.I_SHAPE)
+      board.rotateRight()
+      moveToRightEdge(board)
+      expect(board.toString()).to.equalShape(
+        `..............I
+         ..............I
+         ..............I
+         ..............I
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............`
+      )
+      board.rotateRight()
+      expect(board.toString()).to.equalShape(
+        `..............I
+         ..............I
+         ..............I
+         ..............I
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............`
+      )
+
+
+      
+    })
   
 
 })
