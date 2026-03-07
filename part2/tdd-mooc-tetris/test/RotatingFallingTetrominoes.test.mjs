@@ -108,4 +108,33 @@ describe("Test Rotating T shape", () =>{
      
         
     })
+
+
+})
+
+describe("Test Rotating O shape", () =>{
+
+  let board;
+  beforeEach(()=>{
+    board = new Board(15,10)
+  })
+
+  test("Test Dropping the T shape to a bigger board", ()=>{
+      board.drop(Tetromino.O_SHAPE)
+      expect(board.toString()).to.equalShape(
+        `.......OO......
+         .......OO......
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............`
+      )
+        
+    })
+
+
 })
