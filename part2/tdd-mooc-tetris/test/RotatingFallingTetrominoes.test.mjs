@@ -48,9 +48,33 @@ describe("Test Rotating I shape", () =>{
          ...............
          ...............`
       )
+
+      
     })
 
+    test("The I shape can be moved horizontally at the last second", () =>{
+      board.drop(Tetromino.I_SHAPE)
+      board.rotateRight()
+      board.moveDown().moveDown().moveDown().moveDown().moveDown().moveDown()
+      board.rotateRight()
+      expect(board.toString()).to.equalShape(
+        `...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         .....IIII......
+         ...............`
+      )
+    })
+
+  
+
 })
+
 
 describe("Test Rotating T shape", () =>{
   let board;
