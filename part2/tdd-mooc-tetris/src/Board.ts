@@ -263,6 +263,16 @@ export class Board {
 
     let shape = rotatedTermino.getCurrentShape()
     let newFinalBlocks = shape.toString().trim().split("\n")
+
+    const possibleKickDirections = [
+      {kx:0, ky:0},
+      {kx:-1,ky:0},
+      {kx:1,ky:0}
+    ]
+
+    const ogX = this.blocki.x
+    const ogY = this.blocki.y
+
     for(let row=0; row<newFinalBlocks.length; row++){
       for(let col = 0; col<newFinalBlocks[row].length; col++){
 
