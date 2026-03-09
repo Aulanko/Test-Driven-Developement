@@ -286,20 +286,8 @@ export class Board {
     if(!this.shapeRotationPossible(newFinalBlocks)){
       return this
     }
-    /*
-    for(let row=0; row<newFinalBlocks.length; row++){
-      for(let col = 0; col<newFinalBlocks[row].length; col++){
-
-        if(newFinalBlocks[row][col]!="." && this.blocki.x+col>=this.width 
-          || newFinalBlocks[row][col]!="." &&  this.blocki.x+col<0){
-          return this
-        }
-        
-        //const partOfShape= this.getFallingBlocks().some(i=>i.row===rowBelow&&i.col===block.col)
-      }
-    }*/
+    
       
-
     this.clearOldPosition()
     this.fallingTetromino = rotatedTermino
     this.finalBlocks = newFinalBlocks
