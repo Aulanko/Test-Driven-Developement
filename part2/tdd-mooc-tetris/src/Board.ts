@@ -265,11 +265,13 @@ export class Board {
     let newFinalBlocks = shape.toString().trim().split("\n")
     for(let row=0; row<newFinalBlocks.length; row++){
       for(let col = 0; col<newFinalBlocks[row].length; col++){
+
         if(newFinalBlocks[row][col]!="." && this.blocki.x+col>=this.width 
-          || newFinalBlocks[row][col]!="." &&  this.blocki.x+col<0
-          || col>=999){
+          || newFinalBlocks[row][col]!="." &&  this.blocki.x+col<0){
           return this
         }
+        
+        //const partOfShape= this.getFallingBlocks().some(i=>i.row===rowBelow&&i.col===block.col)
       }
     }
       
