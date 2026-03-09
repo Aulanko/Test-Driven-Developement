@@ -190,10 +190,11 @@ export class Board {
       for(let col = 0; col<newFinalBlocks[row].length; col++){
         if(newFinalBlocks[row][col]!="." && this.blocki.x+col>=this.width 
           || newFinalBlocks[row][col]!="." &&  this.blocki.x+col<0){
-          return this
+          return false
         }
       }
     }
+    return true
   }
 
 
@@ -282,6 +283,10 @@ export class Board {
     const ogX = this.blocki.x
     const ogY = this.blocki.y
 
+    if(!this.shapeRotationPossible(newFinalBlocks)){
+      return this
+    }
+    /*
     for(let row=0; row<newFinalBlocks.length; row++){
       for(let col = 0; col<newFinalBlocks[row].length; col++){
 
@@ -292,7 +297,7 @@ export class Board {
         
         //const partOfShape= this.getFallingBlocks().some(i=>i.row===rowBelow&&i.col===block.col)
       }
-    }
+    }*/
       
 
     this.clearOldPosition()
