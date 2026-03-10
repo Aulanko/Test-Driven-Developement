@@ -1,3 +1,6 @@
+import { IntegerType } from "mongodb";
+import { Tetromino } from "./Tetromino";
+
 export class Board {
   width;
   height;
@@ -185,16 +188,27 @@ export class Board {
         }
   }
 
-  shapeRotationPossible(newFinalBlocks:string[]){
-    for(let row=0; row<newFinalBlocks.length; row++){
-      for(let col = 0; col<newFinalBlocks[row].length; col++){
-        if(newFinalBlocks[row][col]!="." && this.blocki.x+col>=this.width 
-          || newFinalBlocks[row][col]!="." &&  this.blocki.x+col<0){
-          return false
+  shapeRotationPossible(newFinalBlocks:string[],x:any,y:any){
+    for (let row = 0; row < newFinalBlocks.length; row++) {
+      for (let col = 0; col < newFinalBlocks[row].length; col++) {
+        if (newFinalBlocks[row][col] !== ".") {
+         
+          if (x + col >= this.width || x + col < 0) return false;
+
+          const boardRow = y + row;
+          const boardCol = x + col;
+          if (boardRow < 0 || boardRow >= this.height) return false;
+
+          const partOfShape = this.getFallingBlocks().some(
+            block => block.row === boardRow && block.col === boardCol
+          );
+          if (!partOfShape && this.stringi[boardRow][boardCol] !== ".") {
+            return false;
+          }
         }
       }
-    }
-    return true
+  }
+  return true;
   }
 
 
@@ -274,25 +288,38 @@ export class Board {
     let shape = rotatedTermino.getCurrentShape()
     let newFinalBlocks = shape.toString().trim().split("\n")
 
-    const possibleKickDirections = [
+    let possibleKickDirections = [
       {kx:0, ky:0},
       {kx:-1,ky:0},
-      {kx:1,ky:0}
-    ]
+      {kx:1,ky:0}]
+    if(this.fallingTetromino===Tetromino.I_SHAPE){
+      possibleKickDirections = [{ kx: 0, ky: 0 }]
+    }
+   
+    
+    
 
     const ogX = this.blocki.x
     const ogY = this.blocki.y
 
-    if(!this.shapeRotationPossible(newFinalBlocks)){
-      return this
-    }
-    
+    for(const kick of possibleKickDirections){
+      let testX = ogX + kick.kx
+      let testY = ogY
+        
       
-    this.clearOldPosition()
-    this.fallingTetromino = rotatedTermino
-    this.finalBlocks = newFinalBlocks
-   
-    this.reDrawFallingBlocks()
+      if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
+        
+        this.clearOldPosition()
+        this.blocki.y = testY
+        this.blocki.x = testX
+        this.fallingTetromino = rotatedTermino
+        this.finalBlocks = newFinalBlocks
+      
+        this.reDrawFallingBlocks()
+        return this
+      }
+
+    }
     return this
   }
 
