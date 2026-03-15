@@ -172,6 +172,35 @@ describe("Test Rotating I shape", () =>{
       )
 
     })
+
+    test("The I shape cannot rotate over other blocks", () =>{
+      board.drop(Tetromino.I_SHAPE)
+      board.rotateRight()
+      fallToBottom(board)
+      board.drop(Tetromino.I_SHAPE)
+      board.rotateRight()
+      board.moveLeft().moveLeft().moveLeft()
+      fallToBottom(board)
+      expect(board.toString()).to.equalShape(
+        `...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ....I..I.......
+         ....I..I.......
+         ....I..I.......
+         ....I..I.......`
+      )
+      /*
+      board.rotateLeft()
+      board.moveLeft()
+      board.moveDown().moveDown().moveDown().moveDown().moveDown()
+      board.rotateRight()*/
+      
+
+    })
   
 
 })
