@@ -140,6 +140,11 @@ export class Board {
       } else{
         this.onImpact -=1
          if (this.onImpact <0 ){
+         
+          const fallenShape = this.getFallingBlocks();
+          for (const block of fallenShape) {
+            this.fallenBlocksCoordinatesList.push({ row: block.row, col: block.col });
+          }
           this.blocki = { type:"", y:0,x:1};
           this.finalBlocks= [];
         }
