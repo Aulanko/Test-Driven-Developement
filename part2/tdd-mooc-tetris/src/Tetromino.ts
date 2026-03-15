@@ -31,6 +31,11 @@ export class Tetromino{
             `.T..\n.TT.\n.T..\n....`,
             ]
         }
+        if(whatShape==="O"){
+            const dafferentPositions =[
+                `.OO.\n.OO.\n....`
+            ]
+        }
 
         const differentPositions = [
             shape,
