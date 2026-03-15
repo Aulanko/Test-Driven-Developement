@@ -9,6 +9,7 @@ export class Board {
   onImpact;
   finalBlocks:string[];
   fallingTetromino:any;
+  fallenBlocksCoordinatesList: {}[];
   
 
   constructor(width:number, height:number) {
@@ -17,6 +18,7 @@ export class Board {
     this.finalBlocks =[]
     this.stringi = []
     this.fallingTetromino = null
+    this.fallenBlocksCoordinatesList = []
    
     this.blocki = {type:"",y:0,x:1};
     this.onImpact = 2
