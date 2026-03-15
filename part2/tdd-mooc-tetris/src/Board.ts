@@ -194,6 +194,7 @@ export class Board {
         if (newFinalBlocks[row][col] !== ".") {
          
           if (x + col >= this.width || x + col < 0) return false;
+          
 
           const boardRow = y + row;
           const boardCol = x + col;
@@ -330,6 +331,14 @@ export class Board {
     let rotatedTermino = this.fallingTetromino.rotateLeft()
     let shape = rotatedTermino.getCurrentShape()
     let newFinalBlocks = shape.toString().trim().split("\n")
+    let possibleKickDirections = [
+      {kx:0, ky:0},
+      {kx:-1,ky:0},
+      {kx:1,ky:0}]
+    if(this.fallingTetromino===Tetromino.I_SHAPE){
+      possibleKickDirections = [{ kx: 0, ky: 0 }]
+    }
+    
     for(let row=0; row<newFinalBlocks.length; row++){
       for(let col = 0; col<newFinalBlocks[row].length; col++){
         if(newFinalBlocks[row][col]!="." && this.blocki.x+col>=this.width 
