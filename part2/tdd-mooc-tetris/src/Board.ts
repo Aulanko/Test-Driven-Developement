@@ -222,6 +222,20 @@ export class Board {
     this.reDrawFallingBlocks()
   }
 
+  shapeOffset(piece:any, direction:string){
+    if(piece==Tetromino.I_SHAPE){
+      const vertical = this.finalBlocks.length>this.finalBlocks[0].length
+      if(vertical){
+        return {kx:0, ky:1}
+      }
+      else{
+        return {kx:0,ky:-1}
+      }
+      
+    }
+
+  }
+
 
   moveRight(){
     const blocksFalling = this.getFallingBlocks()
@@ -296,8 +310,9 @@ export class Board {
     let rotatedTermino = this.fallingTetromino.rotateRight()
 
 
-    let shape = rotatedTermino.getCurrentShape()
-    let newFinalBlocks = shape.toString().trim().split("\n")
+    let shapeToMove = rotatedTermino.getCurrentShape()
+    let newFinalBlocks = shapeToMove.toString().trim().split("\n")
+    const offset = this.shapeOffset(this.fallingTetromino,"right")
 
     let possibleKickDirections = [
       {kx:0, ky:0},
@@ -315,7 +330,7 @@ export class Board {
 
     for(const kick of possibleKickDirections){
       let testX = ogX + kick.kx
-      let testY = ogY
+      let testY = ogY + kick.ky
         
       
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
@@ -339,9 +354,7 @@ export class Board {
       {kx:0, ky:0},
       {kx:-1,ky:0},
       {kx:1,ky:0}]
-    if(this.fallingTetromino===Tetromino.I_SHAPE){
-      possibleKickDirections = [{ kx: 0, ky: 0 }]
-    }
+   
 
     const ogX = this.blocki.x
     const ogY = this.blocki.y
