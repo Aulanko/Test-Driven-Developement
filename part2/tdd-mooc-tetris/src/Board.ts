@@ -321,9 +321,7 @@ export class Board {
       {kx:0, ky:0},
       {kx:-1,ky:0},
       {kx:1,ky:0}]
-    if(this.fallingTetromino===Tetromino.I_SHAPE){
-      possibleKickDirections = [{ kx: 0, ky: 0 }]
-    }
+    
    
     const ogX = this.blocki.x
     const ogY = this.blocki.y
