@@ -6,8 +6,8 @@ export class Tetromino{
 
     whatShape:string;
     currentPosition:number;
-    differentPositions:object[];
-    constructor(currentPosition:number, differentPositions:object[], whatShape:string){
+    differentPositions:string[];
+    constructor(currentPosition:number, differentPositions:string[], whatShape:string){
     
         this.whatShape = whatShape
         this.currentPosition=currentPosition
@@ -20,21 +20,21 @@ export class Tetromino{
         let dafferentPositions:string[] = []
         if(whatShape==="I"){
             dafferentPositions = [
-            `IIII\n....\n....`,
-            `..I.\n..I.\n..I.\n..I.`
+            `IIII\n....\n....\n`,
+            `..I.\n..I.\n..I.\n..I.\n`
             ]
         }
         if(whatShape==="T"){
             dafferentPositions = [
-            `TTT.\n.T..\n....`,
-            `.T..\nTT..\n.T..\n....`,
-            `....\n.T..\nTTT.\n....`,
-            `.T..\n.TT.\n.T..\n....`,
+            `TTT.\n.T..\n....\n`,
+            `.T..\nTT..\n.T..\n....\n`,
+            `....\n.T..\nTTT.\n....\n`,
+            `.T..\n.TT.\n.T..\n....\n`,
             ]
         }
         if(whatShape==="O"){
             dafferentPositions =[
-                `.OO.\n.OO.\n....`
+                `.OO.\n.OO.\n....\n`
             ]
         }
 
@@ -47,8 +47,8 @@ export class Tetromino{
 
         dafferentPositions.slice(0,numberOfPositions)
         
-
-        return new Tetromino(currentPosition, differentPositions,whatShape)
+        return new Tetromino(currentPosition, dafferentPositions, whatShape)
+       // return new Tetromino(currentPosition, differentPositions,whatShape)
     }   
 
     static T_SHAPE = Tetromino.fromString(
