@@ -212,6 +212,16 @@ export class Board {
   return true;
   }
 
+  applyRotation(rotatedTermino:any, newFinalBlocks:any, testX:number, testY:number){
+    this.clearOldPosition()
+    this.blocki.y = testY
+    this.blocki.x = testX
+    this.fallingTetromino = rotatedTermino
+    this.finalBlocks = newFinalBlocks
+      
+    this.reDrawFallingBlocks()
+  }
+
 
   moveRight(){
     const blocksFalling = this.getFallingBlocks()

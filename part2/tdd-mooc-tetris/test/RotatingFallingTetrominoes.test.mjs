@@ -83,7 +83,7 @@ describe("Test Rotating I shape", () =>{
     })
 
 
-    test("I shape cannot be rotated right if too close to wall", () =>{
+    test("I shape will kick if too close to wall", () =>{
       board.drop(Tetromino.I_SHAPE)
       board.rotateRight()
       moveToRightEdge(board)
@@ -117,7 +117,7 @@ describe("Test Rotating I shape", () =>{
       
     })
 
-    test.skip("I shape cannot be rotated left if too close to left wall", () =>{
+    test.skip("I shape will kick if too close to left wall", () =>{
       board.drop(Tetromino.I_SHAPE)
       board.rotateRight()
       moveToLeftEdge(board)
