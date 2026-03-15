@@ -17,14 +17,15 @@ export class Tetromino{
     static fromString(currentPosition:number, numberOfPositions:number, initialShape:string, whatShape:string){
         let shape = RotatingShape.fromString(initialShape)
         
+        let dafferentPositions:string[] = []
         if(whatShape==="I"){
-            const dafferentPositions = [
+            dafferentPositions = [
             `IIII\n....\n....`,
             `..I.\n..I.\n..I.\n..I.`
             ]
         }
         if(whatShape==="T"){
-            const dafferentPositions = [
+            dafferentPositions = [
             `TTT.\n.T..\n....`,
             `.T..\nTT..\n.T..\n....`,
             `....\n.T..\nTTT.\n....`,
@@ -32,7 +33,7 @@ export class Tetromino{
             ]
         }
         if(whatShape==="O"){
-            const dafferentPositions =[
+            dafferentPositions =[
                 `.OO.\n.OO.\n....`
             ]
         }
@@ -43,6 +44,9 @@ export class Tetromino{
             shape.rotateRight().rotateRight(),
             shape.rotateLeft()
         ].slice(0,numberOfPositions)
+
+        dafferentPositions.slice(0,numberOfPositions)
+        
 
         return new Tetromino(currentPosition, differentPositions,whatShape)
     }   

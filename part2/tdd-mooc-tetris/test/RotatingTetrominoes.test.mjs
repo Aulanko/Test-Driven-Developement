@@ -20,11 +20,14 @@ describe("The T shape", () => {
   const shape = Tetromino.T_SHAPE;
 
   test("initial orientation", () => {
-    expect(shape.toString()).to.equalShape(
+   expect(shape.toString()).to.equalShape(
       `.T.
        TTT
        ...`
     );
+    /*expect(shape.toString()).to.equalShape(
+      `TTT.\n.T..\n....`
+    )*/
   });
 
   test("can be rotated right/clockwise", () => {
