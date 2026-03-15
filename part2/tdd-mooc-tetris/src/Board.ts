@@ -317,10 +317,22 @@ export class Board {
     const offset = this.shapeOffset(this.fallingTetromino,"right")
 
 
-    let possibleKickDirections = [
+    let possibleKickDirections = []
+    if(this.fallingTetromino === Tetromino.I_SHAPE){
+      possibleKickDirections = [
+      {kx:0, ky:0},
+      {kx:-1,ky:0},
+      {kx:2,ky:0},
+      {kx:-1,ky:1},  
+      {kx:2,ky:-2}   
+    ]
+    }else{
+      possibleKickDirections = [
       {kx:0, ky:0},
       {kx:-1,ky:0},
       {kx:1,ky:0}]
+    }
+   
     
    
     const ogX = this.blocki.x
