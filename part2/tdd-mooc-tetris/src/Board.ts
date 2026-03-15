@@ -60,7 +60,7 @@ export class Board {
         this.blocki.type ="T"
         
       }
-      if(this.finalBlocks[2][1] =="I"){
+      if(this.finalBlocks[0][1] =="I"){
         this.blocki.type ="I"
        
       }
@@ -189,6 +189,9 @@ export class Board {
   }
 
   shapeRotationPossible(newFinalBlocks:string[],x:any,y:any){
+    
+    const oldPositions = new Set(this.getFallingBlocks().map(block => `${block.row},${block.col}`))
+
     for (let row = 0; row < newFinalBlocks.length; row++) {
       for (let col = 0; col < newFinalBlocks[row].length; col++) {
         if (newFinalBlocks[row][col] !== ".") {
@@ -199,13 +202,23 @@ export class Board {
           const boardRow = y + row;
           const boardCol = x + col;
           if (boardRow < 0 || boardRow >= this.height) return false;
-
+          /*
           const partOfShape = this.getFallingBlocks().some(
             block => block.row === boardRow && block.col === boardCol
-          );
-          if (!partOfShape && this.stringi[boardRow][boardCol] !== ".") {
+          );*/
+
+          const key = `${boardRow},${boardCol}`
+          if (oldPositions.has(key)) {
+            continue; 
+         }
+          
+          /*if (!partOfShape && this.stringi[boardRow][boardCol] !== ".") {
             return false;
-          }
+          }*/
+          if (this.stringi[boardRow][boardCol] !== ".") {
+            return false;
+         }
+         
         }
       }
   }
