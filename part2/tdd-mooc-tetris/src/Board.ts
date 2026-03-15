@@ -320,13 +320,7 @@ export class Board {
       
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
         
-        this.clearOldPosition()
-        this.blocki.y = testY
-        this.blocki.x = testX
-        this.fallingTetromino = rotatedTermino
-        this.finalBlocks = newFinalBlocks
-      
-        this.reDrawFallingBlocks()
+        this.applyRotation(rotatedTermino,newFinalBlocks,testX,testY)
         return this
       }
 
