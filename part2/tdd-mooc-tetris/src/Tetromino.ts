@@ -26,7 +26,7 @@ export class Tetromino{
             shape.rotateLeft()
         ].slice(0,numberOfPositions)
 
-        return new Tetromino(currentPosition, differentPositions)
+        return new Tetromino(currentPosition, differentPositions,whatShape)
     }   
 
     static T_SHAPE = Tetromino.fromString(
