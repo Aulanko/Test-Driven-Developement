@@ -9,7 +9,7 @@ export class Board {
   onImpact;
   finalBlocks:string[];
   fallingTetromino:any;
-  fallenBlocksCoordinatesList: {}[];
+  fallenBlocksCoordinatesList: { row:number; col:number }[];
   
 
   constructor(width:number, height:number) {
@@ -209,6 +209,14 @@ export class Board {
           const boardRow = y + row;
           const boardCol = x + col;
           if (boardRow < 0 || boardRow >= this.height) return false;
+
+          
+          const collidesWithLocked = this.fallenBlocksCoordinatesList.some(
+            locked => locked.row === boardRow && locked.col === boardCol
+          );
+          if (collidesWithLocked) {
+            return false;
+          }
           /*
           const partOfShape = this.getFallingBlocks().some(
             block => block.row === boardRow && block.col === boardCol
@@ -234,6 +242,7 @@ export class Board {
 
   applyRotation(rotatedTermino:any, newFinalBlocks:any, testX:number, testY:number){
     this.clearOldPosition()
+    
     this.blocki.y = testY
     this.blocki.x = testX
     this.fallingTetromino = rotatedTermino
