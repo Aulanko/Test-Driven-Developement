@@ -338,22 +338,28 @@ export class Board {
     if(this.fallingTetromino===Tetromino.I_SHAPE){
       possibleKickDirections = [{ kx: 0, ky: 0 }]
     }
-    
-    for(let row=0; row<newFinalBlocks.length; row++){
-      for(let col = 0; col<newFinalBlocks[row].length; col++){
-        if(newFinalBlocks[row][col]!="." && this.blocki.x+col>=this.width 
-          || newFinalBlocks[row][col]!="." &&  this.blocki.x+col<0){
-          return this
-        }
-      }
-    }
-      
 
-    this.clearOldPosition()
-    this.fallingTetromino = rotatedTermino
-    this.finalBlocks = newFinalBlocks
-   
-    this.reDrawFallingBlocks()
+    const ogX = this.blocki.x
+    const ogY = this.blocki.y
+
+    for(const kick of possibleKickDirections){
+      let testX = ogX + kick.kx
+      let testY = ogY
+        
+      
+      if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
+        
+        this.clearOldPosition()
+        this.blocki.y = testY
+        this.blocki.x = testX
+        this.fallingTetromino = rotatedTermino
+        this.finalBlocks = newFinalBlocks
+      
+        this.reDrawFallingBlocks()
+        return this
+      }
+
+    }
     return this
   }
 
