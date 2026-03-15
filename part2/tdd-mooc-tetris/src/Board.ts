@@ -223,20 +223,7 @@ export class Board {
   }
 
 
-  shapeOffset(piece:any, direction:string){
-    if(piece==Tetromino.I_SHAPE){
-      const vertical = this.finalBlocks.length>this.finalBlocks[0].length
-      if(vertical){
-        return {kx:0, ky:1}
-      }
-      else{
-        return {kx:0,ky:-1}
-      }
-      
-    }
-    return false
-
-  }
+  
 
 
   moveRight(){
@@ -314,7 +301,7 @@ export class Board {
 
     let shapeToMove = rotatedTermino.getCurrentShape()
     let newFinalBlocks = shapeToMove.toString().trim().split("\n")
-    const offset = this.shapeOffset(this.fallingTetromino,"right")
+    
 
 
     let possibleKickDirections = []
