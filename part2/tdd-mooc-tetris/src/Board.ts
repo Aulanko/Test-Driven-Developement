@@ -340,7 +340,10 @@ export class Board {
       {kx:-1,ky:0},
       {kx:-2, ky:0},
       {kx:1,ky:0},
-      {kx:2, ky:0}
+      {kx:2, ky:0},
+      {kx:0, ky:1},
+      {kx:0, ky:2}
+
       
     ]
     }else{
