@@ -334,15 +334,14 @@ export class Board {
 
 
     let possibleKickDirections = []
-    if(this.fallingTetromino === Tetromino.I_SHAPE){
+    if(this.fallingTetromino.whatShape === "I"){
       possibleKickDirections = [
       {kx:0, ky:0},
       {kx:-1,ky:0},
       {kx:-2, ky:0},
       {kx:1,ky:0},
-      {kx:2, ky:0},
-      {kx:-1,ky:1},  
-      {kx:2,ky:-2} 
+      {kx:2, ky:0}
+      
     ]
     }else{
       possibleKickDirections = [
@@ -363,6 +362,7 @@ export class Board {
       
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
         console.log(newFinalBlocks)
+        console.log(possibleKickDirections)
         console.log("kick x:",kick.kx, "kick y:", kick.ky)
         this.applyRotation(rotatedTermino,newFinalBlocks,testX,testY)
         console.log("This rotation was succesful")

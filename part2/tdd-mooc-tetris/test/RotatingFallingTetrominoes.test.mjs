@@ -117,7 +117,7 @@ describe("Test Rotating I shape", () =>{
       
     })
 
-    test.skip("I shape will kick if too close to left wall", () =>{
+    test("I shape will kick if too close to left wall", () =>{
       board.drop(Tetromino.I_SHAPE)
       board.rotateRight()
       moveToLeftEdge(board)
@@ -135,7 +135,7 @@ describe("Test Rotating I shape", () =>{
       )
       board.rotateRight()
       expect(board.toString()).to.equalShape(
-        `...........IIII
+        `IIII...........
          ...............
          ...............
          ...............
