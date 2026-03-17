@@ -85,8 +85,8 @@ export class Tetromino{
         return new Tetromino(next, this.differentPositions, this.whatShape) }
 
     rotateLeft(){
-        return new Tetromino((this.currentPosition-1+this.differentPositions.length)%this.differentPositions.length,
-         this.differentPositions, this.whatShape) }
+        const next = (this.currentPosition-1+ this.differentPositions.length)%this.differentPositions.length
+        return new Tetromino(next,this.differentPositions, this.whatShape) }
 
     
     
