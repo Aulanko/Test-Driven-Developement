@@ -338,9 +338,11 @@ export class Board {
       possibleKickDirections = [
       {kx:0, ky:0},
       {kx:-1,ky:0},
-      {kx:2,ky:0},
+      {kx:-2, ky:0},
+      {kx:1,ky:0},
+      {kx:2, ky:0},
       {kx:-1,ky:1},  
-      {kx:2,ky:-2}   
+      {kx:2,ky:-2} 
     ]
     }else{
       possibleKickDirections = [
@@ -360,6 +362,7 @@ export class Board {
         
       
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
+        console.log(newFinalBlocks)
         console.log("kick x:",kick.kx, "kick y:", kick.ky)
         this.applyRotation(rotatedTermino,newFinalBlocks,testX,testY)
         console.log("This rotation was succesful")
@@ -383,9 +386,10 @@ export class Board {
       possibleKickDirections = [
       {kx:0, ky:0},
       {kx:-1,ky:0},
-      {kx:2,ky:0},
-      {kx:-1,ky:1},  
-      {kx:2,ky:-2}   
+      {kx:-2, ky:0},
+      {kx:1,ky:0},
+      {kx:2, ky:0},
+      {kx:-1,ky:1},   
     ]
     }else{
       possibleKickDirections = [
@@ -399,7 +403,7 @@ export class Board {
 
     for(const kick of possibleKickDirections){
       let testX = ogX + kick.kx
-      let testY = ogY
+      let testY = ogY 
         
       
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
