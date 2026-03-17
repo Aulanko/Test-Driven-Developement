@@ -360,12 +360,14 @@ export class Board {
         
       
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
-        
+        console.log("kick x:",kick.kx, "kick y:", kick.ky)
         this.applyRotation(rotatedTermino,newFinalBlocks,testX,testY)
+        console.log("This rotation was succesful")
         return this
       }
 
     }
+    console.log("No given rotations were success")
     return this
   }
 

@@ -38,12 +38,7 @@ export class Tetromino{
             ]
         }
 
-        const differentPositions = [
-            shape,
-            shape.rotateRight(),
-            shape.rotateRight().rotateRight(),
-            shape.rotateLeft()
-        ].slice(0,numberOfPositions)
+        
 
         dafferentPositions.slice(0,numberOfPositions)
         
