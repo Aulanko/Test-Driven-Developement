@@ -40,9 +40,9 @@ export class Tetromino{
 
         
 
-        dafferentPositions.slice(0,numberOfPositions)
+        const positions = dafferentPositions.slice(0,numberOfPositions)
         
-        return new Tetromino(currentPosition, dafferentPositions, whatShape)
+        return new Tetromino(currentPosition, positions, whatShape)
        // return new Tetromino(currentPosition, differentPositions,whatShape)
     }   
 
