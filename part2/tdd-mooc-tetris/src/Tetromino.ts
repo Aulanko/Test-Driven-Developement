@@ -43,7 +43,7 @@ export class Tetromino{
         const positions = dafferentPositions.slice(0,numberOfPositions)
         
         return new Tetromino(currentPosition, positions, whatShape)
-       // return new Tetromino(currentPosition, differentPositions,whatShape)
+       
     }   
 
     static T_SHAPE = Tetromino.fromString(
