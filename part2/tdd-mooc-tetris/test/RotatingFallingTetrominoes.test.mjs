@@ -434,7 +434,7 @@ describe("Test Rotating T shape", () =>{
 
     })
 
-    test("T shape cannot rotate beyond right wall", () =>{
+    test("T shape wall kicks right wall", () =>{
       board.drop(Tetromino.T_SHAPE)
       board.rotateRight()
       moveToRightEdge(board)
@@ -466,7 +466,7 @@ describe("Test Rotating T shape", () =>{
 
     })
 
-    test("T shape cannot rotate over left wall", ()=>{
+    test("T shape wall kicks over left wall", ()=>{
       board.drop(Tetromino.T_SHAPE)
       board.rotateLeft()
       moveToLeftEdge(board)
@@ -495,6 +495,51 @@ describe("Test Rotating T shape", () =>{
          ...............
          ...............`
       )
+
+    })
+
+    test("T shape will wall kick from other blocks", ()=>{
+      board.drop(Tetromino.O_SHAPE)
+      fallToBottom(board)
+      board.drop(Tetromino.O_SHAPE)
+      fallToBottom(board)
+      board.drop(Tetromino.T_SHAPE)
+      board.rotateRight()
+      board.moveLeft()
+   
+
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      expect(board.toString()).to.equalShape(
+        `...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         .....TOO.......
+         ....TTOO.......
+         .....TOO.......
+         ......OO.......`
+      )
+      board.rotateLeft()
+      expect(board.toString()).to.equalShape(
+        `...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...TTTOO.......
+         ....T.OO.......
+         ......OO.......
+         ......OO.......`
+      )
+      
 
     })
 
