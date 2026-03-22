@@ -436,12 +436,12 @@ describe("Test Rotating T shape", () =>{
 
     test("T shape cannot rotate beyond right wall", () =>{
       board.drop(Tetromino.T_SHAPE)
-      board.rotateLeft()
+      board.rotateRight()
       moveToRightEdge(board)
       expect(board.toString()).to.equalShape(
-        `.............T.
+        `..............T
          .............TT
-         .............T.
+         ..............T
          ...............
          ...............
          ...............
@@ -452,9 +452,9 @@ describe("Test Rotating T shape", () =>{
       )
       board.rotateRight()
       expect(board.toString()).to.equalShape(
-        `............TTT
+        `...............
          .............T.
-         ...............
+         ............TTT
          ...............
          ...............
          ...............
