@@ -335,17 +335,31 @@ export class Board {
 
     let possibleKickDirections = []
     if(this.fallingTetromino.whatShape === "I"){
+      const vertical = newFinalBlocks.length===4
+      if(vertical){
+        possibleKickDirections = [
+        {kx:0, ky:0},
+        {kx:0, ky:-1},
+        {kx:0, ky:-2},
+        {kx:0, ky:-3},
+        {kx:-1,ky:0},
+        {kx:-2, ky:0},
+        {kx:1,ky:0},
+        {kx:2, ky:0}
+        
+    ]
+      }else{
       possibleKickDirections = [
       {kx:0, ky:0},
       {kx:-1,ky:0},
       {kx:-2, ky:0},
       {kx:1,ky:0},
       {kx:2, ky:0},
-      {kx:0, ky:1},
-      {kx:0, ky:2}
+      {kx:0, ky:-1},
+      {kx:0, ky:-2}
 
       
-    ]
+    ]}
     }else{
       possibleKickDirections = [
       {kx:0, ky:0},
@@ -386,15 +400,30 @@ export class Board {
     let newFinalBlocks = shape.toString().trim().split("\n")
     let possibleKickDirections = []
     if(this.fallingTetromino.whatShape === "I"){
+      const vertical = newFinalBlocks.length===4
+      if(vertical){
+      possibleKickDirections = [
+        {kx:0, ky:0},
+        {kx:0, ky:-1},
+        {kx:0, ky:-2},
+        {kx:0, ky:-3},
+        {kx:-1,ky:0},
+        {kx:-2, ky:0},
+        {kx:1,ky:0},
+        {kx:2, ky:0}
+        
+    ]}
+    else{
       possibleKickDirections = [
       {kx:0, ky:0},
-      {kx:-1,ky:0},
-      {kx:-2, ky:0},
       {kx:1,ky:0},
       {kx:2, ky:0},
-      {kx:0, ky:1},
-      {kx:0, ky:2}  
-    ]
+      {kx:0, ky:-1},
+      {kx:0, ky:-2},
+      {kx:-1,ky:0},
+      {kx:-2, ky:0}  ]
+
+    }
     }else{
       possibleKickDirections = [
       {kx:0, ky:0},

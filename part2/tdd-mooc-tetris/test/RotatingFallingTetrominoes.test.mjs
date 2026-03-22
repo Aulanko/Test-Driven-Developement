@@ -313,6 +313,46 @@ describe("Test Rotating I shape", () =>{
 
     })
 
+    test("The I shape can kick upwards from other shapes", () =>{
+
+      board.drop(Tetromino.O_SHAPE)
+      fallToBottom(board)
+      board.drop(Tetromino.O_SHAPE)
+      fallToBottom(board)
+      board.drop(Tetromino.O_SHAPE)
+      board.moveLeft()
+      board.moveLeft()
+      fallToBottom(board)
+      board.drop(Tetromino.O_SHAPE)
+      board.moveLeft()
+      board.moveLeft()
+      fallToBottom(board)
+      board.drop(Tetromino.I_SHAPE)
+      board.moveDown()
+      board.moveDown()
+     
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveLeft()
+      board.rotateRight()
+      expect(board.toString()).to.equalShape(
+        `...............
+         ...............
+         ......I........
+         ......I........
+         ......I........
+         ......I........
+         ....OOOO.......
+         ....OOOO.......
+         ....OOOO.......
+         ....OOOO.......`
+      )
+
+
+    })
+
     
   
 
