@@ -450,11 +450,11 @@ describe("Test Rotating T shape", () =>{
          ...............
          ...............`
       )
-      board.moveRight()
+      board.rotateRight()
       expect(board.toString()).to.equalShape(
-        `.............T.
-         .............TT
+        `............TTT
          .............T.
+         ...............
          ...............
          ...............
          ...............
@@ -465,6 +465,8 @@ describe("Test Rotating T shape", () =>{
       )
 
     })
+
+
 
 
 })
