@@ -385,14 +385,15 @@ export class Board {
     let shape = rotatedTermino.getCurrentShape()
     let newFinalBlocks = shape.toString().trim().split("\n")
     let possibleKickDirections = []
-    if(this.fallingTetromino === Tetromino.I_SHAPE){
+    if(this.fallingTetromino.whatShape === "I"){
       possibleKickDirections = [
       {kx:0, ky:0},
       {kx:-1,ky:0},
       {kx:-2, ky:0},
       {kx:1,ky:0},
       {kx:2, ky:0},
-      {kx:-1,ky:1},   
+      {kx:0, ky:1},
+      {kx:0, ky:2}  
     ]
     }else{
       possibleKickDirections = [
@@ -406,7 +407,7 @@ export class Board {
 
     for(const kick of possibleKickDirections){
       let testX = ogX + kick.kx
-      let testY = ogY 
+      let testY = ogY + kick.ky
         
       
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
