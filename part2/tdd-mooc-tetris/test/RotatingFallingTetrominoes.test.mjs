@@ -712,7 +712,7 @@ describe("Test Rotating O shape, which cannot be rotated", () =>{
         
     })
 
-    test("The O shape cannot be pushed trough other O shapes", () =>{
+    test("The O shape cannot be pushed trough other shapes", () =>{
       board.drop(Tetromino.O_SHAPE)
       fallToBottom(board)
        board.drop(Tetromino.O_SHAPE)
