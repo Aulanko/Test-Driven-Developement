@@ -9,7 +9,7 @@ export class Board {
   onImpact;
   finalBlocks:string[];
   fallingTetromino:any;
-  fallenBlocksCoordinatesList: { row:number; col:number }[];
+  fallenBlocksCoordinatesList: { row:number; col:number, char:string }[];
   
 
   constructor(width:number, height:number) {
@@ -143,7 +143,7 @@ export class Board {
          
           const fallenShape = this.getFallingBlocks();
           for (const block of fallenShape) {
-            this.fallenBlocksCoordinatesList.push({ row: block.row, col: block.col });
+            this.fallenBlocksCoordinatesList.push({ row: block.row, col: block.col, char:this.stringi[block.row][block.col] });
           }
           this.blocki = { type:"", y:0,x:1};
           this.finalBlocks= [];
@@ -162,6 +162,12 @@ export class Board {
     }
     return true
   }
+
+  reDrawLockedBlocks() {
+    for (const block of this.fallenBlocksCoordinatesList) {
+      this.stringi[block.row][block.col] = block.char;
+    }
+}
 
   getFallingBlocks(){
     const blocksFalling = []
@@ -376,7 +382,7 @@ export class Board {
       let testX = ogX + kick.kx
       let testY = ogY + kick.ky
         
-      
+      console.log("trying newfinalblocks", newFinalBlocks)
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
         console.log(newFinalBlocks)
         console.log(possibleKickDirections)
@@ -440,7 +446,7 @@ export class Board {
         
       
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
-        
+        console.log(newFinalBlocks)
         this.applyRotation(rotatedTermino,newFinalBlocks,testX,testY)
         return this
       }

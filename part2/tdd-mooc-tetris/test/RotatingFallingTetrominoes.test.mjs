@@ -158,10 +158,10 @@ describe("Test Rotating I shape", () =>{
 
       
       expect(board.fallenBlocksCoordinatesList).to.include.deep.members([
-        {row:6, col:7},
-        {row:7, col:7},
-        {row:8, col:7},
-        {row:9, col:7}
+        {row:6, col:7,char:"I"},
+        {row:7, col:7,char:"I"},
+        {row:8, col:7,char:"I"},
+        {row:9, col:7,char:"I"}
       ])
 
       board.drop(Tetromino.I_SHAPE)
@@ -541,6 +541,53 @@ describe("Test Rotating T shape", () =>{
       )
       
 
+    })
+
+    test("T shape wall kicks left from other T shapes", () =>{
+      board.drop(Tetromino.T_SHAPE)
+      fallToBottom(board)
+      board.drop(Tetromino.T_SHAPE)
+      board.rotateLeft()
+ 
+      fallToBottom(board)
+      board.drop(Tetromino.T_SHAPE)
+      board.rotateRight()
+      board.moveLeft()
+      board.moveLeft()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.tick()
+      expect(board.toString()).to.equalShape(
+        `...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ....TT.........
+         ...TTTT........
+         ....TT.........
+         .....TTT.......
+         ......T........`
+      )
+      board.rotateRight()
+    
+      expect(board.toString()).to.equalShape(
+        `...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...T.T.........
+         ..TTTTT........
+         .....T.........
+         .....TTT.......
+         ......T........`
+      )
+
+
+      //board.
     })
 
 
