@@ -712,5 +712,35 @@ describe("Test Rotating O shape, which cannot be rotated", () =>{
         
     })
 
+    test("The O shape cannot be pushed trough other O shapes", () =>{
+      board.drop(Tetromino.O_SHAPE)
+      fallToBottom(board)
+       board.drop(Tetromino.O_SHAPE)
+      fallToBottom(board)
+      board.drop(Tetromino.O_SHAPE)
+      board.moveRight()
+      board.moveRight()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveDown()
+      board.moveLeft()
+      board.moveLeft()
+       expect(board.toString()).to.equalShape(
+        `...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ...............
+         ......OOOO.....
+         ......OOOO.....
+         ......OO.......
+         ......OO.......`
+      )
+    })
+
 
 })
