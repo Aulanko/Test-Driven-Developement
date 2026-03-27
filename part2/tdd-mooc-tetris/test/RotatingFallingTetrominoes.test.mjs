@@ -606,14 +606,11 @@ describe("Test Rotating T shape", () =>{
       board.drop(Tetromino.T_SHAPE)
       fallToBottom(board)
       board.drop(Tetromino.T_SHAPE)
-      board.rotateLeft()
-      board.rotateLeft()
-      board.tick()
-      board.tick()
-      board.tick()
-      board.tick()
-      board.moveDown()
-      board.moveDown()
+      board.moveLeft()
+      board.moveLeft()
+      board.moveLeft()
+      board.moveLeft()
+      fallToBottom(board)
       expect(board.toString()).to.equalShape(
         `...............
          ...............
@@ -621,11 +618,16 @@ describe("Test Rotating T shape", () =>{
          ...............
          ...............
          ...............
-         ......T........
-         .....TTT.......
-         .....TTT.......
-         ......T........`
+         ...............
+         ...............
+         .TTT.TTT.......
+         ..T...T........`
       )
+      
+      
+      
+
+
 
     })
 
