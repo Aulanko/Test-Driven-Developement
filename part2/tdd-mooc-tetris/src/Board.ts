@@ -129,6 +129,7 @@ export class Board {
         }
        
       this.blocki.y ++;
+      this.reDrawLockedBlocks()
 
       for(let row = 0; row<this.finalBlocks.length;row++){
         for(let col = 0; col<this.finalBlocks[row].length;col++){
@@ -167,7 +168,7 @@ export class Board {
     for (const block of this.fallenBlocksCoordinatesList) {
       this.stringi[block.row][block.col] = block.char;
     }
-}
+  }
 
   getFallingBlocks(){
     const blocksFalling = []
@@ -248,7 +249,8 @@ export class Board {
 
   applyRotation(rotatedTermino:any, newFinalBlocks:any, testX:number, testY:number){
     this.clearOldPosition()
-    
+    this.reDrawLockedBlocks()
+
     this.blocki.y = testY
     this.blocki.x = testX
     this.fallingTetromino = rotatedTermino
@@ -279,6 +281,7 @@ export class Board {
     }
     this.blocki.x++;
 
+    this.reDrawLockedBlocks()
     this.reDrawFallingBlocks()
     return this
   }
@@ -302,6 +305,7 @@ export class Board {
     }
     this.blocki.x--;
 
+    this.reDrawLockedBlocks()
     this.reDrawFallingBlocks()
     return this
   }
@@ -322,6 +326,7 @@ export class Board {
         this.stringi[block.row][block.col] = ".";
     }
     this.blocki.y++;
+    this.reDrawLockedBlocks()
     this.reDrawFallingBlocks()
     return this
     return
