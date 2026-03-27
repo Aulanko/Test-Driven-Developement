@@ -1,7 +1,7 @@
-import { Board } from "./Board.js";
+import { Board } from "./Board.ts";
 import { ScoringSystem } from "./ScoringSystem.mjs";
 import { ShuffleBag } from "./ShuffleBag.mjs";
-import { Tetromino } from "./Tetromino.mjs";
+import { Tetromino } from "./Tetromino.ts";
 
 // TODO: change this code to match the API you have created, if you want to run the game for some manual testing
 
