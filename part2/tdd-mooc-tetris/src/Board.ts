@@ -480,6 +480,7 @@ export class Board {
   }
 
   checkFullRow(){
+    
     return
   }
 
