@@ -96,11 +96,6 @@ export class Board {
     if(!this.finalBlocks||this.finalBlocks.length===0){
       return
     }
-
-    const bottomRow = this.stringi[this.blocki.y]
-    
-    const hasDefinedFreeSpace = this.blocki.y+1<this.stringi.length?  this.stringi[this.blocki.y+1][this.blocki.x]==".":false
-
     
     const blocksFalling = this.getFallingBlocks()
    
@@ -489,6 +484,8 @@ export class Board {
     }
     return true
   }
+
+
 
   removeFullRows(){
 
