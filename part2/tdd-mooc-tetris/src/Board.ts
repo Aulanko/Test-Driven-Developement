@@ -479,9 +479,24 @@ export class Board {
     return this
   }
 
-  checkFullRow(){
-    
-    return
+  checkFullRow(array:string[]){
+    for(let i=0; i<this.width; i++){
+      if(array[i]=="."){
+        return false
+      }
+    }
+    return true
+  }
+
+  removeRow(){
+    for(const i of this.stringi){
+      if(this.checkFullRow(i)){
+        {
+          i.map(x=>".")
+      }
+    }
+  }
+
   }
 
 }
