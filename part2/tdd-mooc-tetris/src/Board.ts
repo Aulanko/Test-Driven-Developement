@@ -488,7 +488,7 @@ export class Board {
     return true
   }
 
-  removeRow(){
+  removeFullRows(){
     for(const i of this.stringi){
       if(this.checkFullRow(i)){
         {
