@@ -491,13 +491,13 @@ export class Board {
   }
 
   removeFullRows(){
-    for(const i of this.stringi){
-      if(this.checkFullRow(i)){
-        {
-          i.map(x=>".")
+
+    for(let i =this.stringi.length-1; i>=0;i--){
+      if(this.checkFullRow(this.stringi[i])){
+        this.stringi[i]=this.stringi[i].map(()=>".")
       }
     }
-  }
+    
 
   }
 
