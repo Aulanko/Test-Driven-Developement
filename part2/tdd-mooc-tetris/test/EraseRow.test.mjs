@@ -21,7 +21,7 @@ function moveToRightEdge(board){
     }
 }
 
-describe("Erasing a single row of same type from bottom", ()=>{
+describe("Erasing rows of same type", ()=>{
     let board;
     beforeEach(()=>{
         board = new Board(8,10)
@@ -61,6 +61,33 @@ describe("Erasing a single row of same type from bottom", ()=>{
         )
 
 
+
+
+
+    })
+
+    test("Multiple rows get removed when full", () =>{
+        board.drop(Tetromino.O_SHAPE)
+        moveToLeftEdge(board)
+        fallToBottom(board)
+        board.drop(Tetromino.O_SHAPE)
+      
+        board.moveLeft()
+        fallToBottom(board)
+        board.drop(Tetromino.O_SHAPE)
+        moveToRightEdge(board)
+        fallToBottom(board)
+         expect(board.toString()).to.equalShape(
+           `........
+            ........
+            ........
+            ........
+            ........
+            ........
+            ........
+            ........
+            OOOO..OO
+            OOOO..OO`)
 
     })
 
