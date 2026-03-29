@@ -148,6 +148,8 @@ export class Board {
           }
           this.blocki = { type:"", y:0,x:1};
           this.finalBlocks= [];
+
+          this.removeFullRows()
         }
       }
     
@@ -397,18 +399,18 @@ export class Board {
       let testX = ogX + kick.kx
       let testY = ogY + kick.ky
         
-      console.log("trying newfinalblocks", newFinalBlocks)
+      //console.log("trying newfinalblocks", newFinalBlocks)
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
-        console.log(newFinalBlocks)
-        console.log(possibleKickDirections)
-        console.log("kick x:",kick.kx, "kick y:", kick.ky)
+       // console.log(newFinalBlocks)
+       // console.log(possibleKickDirections)
+        //console.log("kick x:",kick.kx, "kick y:", kick.ky)
         this.applyRotation(rotatedTermino,newFinalBlocks,testX,testY)
-        console.log("This rotation was succesful")
+       // console.log("This rotation was succesful")
         return this
       }
 
     }
-    console.log("No given rotations were success")
+    //console.log("No given rotations were success")
     return this
   }
 
@@ -468,9 +470,9 @@ export class Board {
       let testX = ogX + kick.kx
       let testY = ogY + kick.ky
         
-      console.log(possibleKickDirections)
+      //console.log(possibleKickDirections)
       if(this.shapeRotationPossible(newFinalBlocks, testX, testY)){
-        console.log(newFinalBlocks)
+        //console.log(newFinalBlocks)
         this.applyRotation(rotatedTermino,newFinalBlocks,testX,testY)
         return this
       }
